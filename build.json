@@ -1,0 +1,8 @@
+{
+    "targets"            : {
+        "http-target": {
+            "type" : "static",
+            "hosts": "xuchang-static.oasgames.com"
+        }
+    }
+}
