@@ -1,0 +1,943 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Design:He.Chaomei;Web layout:Song.Guohao" />
+<meta name="keywords" content="loar"/>
+<meta name="description" content="loar3"/>
+<title>loar</title>
+<link rel="shortcut icon" href=""/>
+<link href="/content/themes/oas_homepage/default_arab_v2/static//css/main.css" rel="stylesheet" type="text/css" />
+<link href="/content/themes/oas_homepage/default_arab_v2/static//css/list.css" rel="stylesheet" type="text/css" />
+<link href="/content/themes/oas_homepage/default_arab_v2/static//css/advert.css" rel="stylesheet" type="text/css" />
+
+<link href="http://img.oasgames.com/upload/1471864348/css/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/content/themes/oas_homepage/default_arab_v2/static//js/jquery.js"></script>
+<script type="text/javascript" src="/content/themes/oas_homepage/default_arab_v2/static//js/pptBox.js"></script>
+<script type="text/javascript" src="/content/themes/oas_homepage/default_arab_v2/static//js/jquery.slide.js"></script>
+<script type="text/javascript" src="/content/themes/oas_homepage/default_arab_v2/static//js/songTab.js"></script>
+<script src="/content/themes/common/static/js/common.js" type="text/javascript"></script>
+<style type="text/css">
+	.logo a{ width:263px; height:90px; background:url(//img.oasgames.com/oasevent/1444286314.png); display:block;}
+	.nav .logo{ width:230px; height:141px; position:absolute; left:50%; margin-left:-105px; top:0px; background:url(//img.oasgames.com/oasevent/1444286314.png) no-repeat; display:block;}
+	.header{height:440px; background:url() top center no-repeat; position:relative; z-index:1;}
+	#flash_play{ position:absolute; top:0px; left:50%; margin-left:-1000px; z-index:1;}
+	
+	.banner{ width:1000px; height:440px; background:url() top center no-repeat; margin:0 auto; position:relative; z-index:2;}
+	.goddess{ background:url(); width:400px; height:283px; padding-right:306px;}
+
+	.download{ width:153px; height:80px; display:block; overflow:hidden; background:url(//img.oasgames.com/oasevent/1444294586.png); background-position:0px -80px; padding:0 87px 0 20px; text-align:center; line-height:80px; color:#ebd5d5; font-size:24px; font-weight:bold; margin:10px 0px;}
+	.download:hover { text-decoration:none;}
+	
+	.download_2{ width:153px; height:80px; display:block;overflow:hidden; background:url(); background-position:0px -80px; padding:0 87px 0 20px; text-align:center; line-height:80px; color:#ebd5d5; font-size:24px; font-weight:bold; margin:10px 0px;}
+	.download_2:hover { text-decoration:none;}
+</style>
+<script type="text/javascript"
+        src="//www.oasgames.com/?a=widget&m=login_box&lang=ar&fb_app_id=340989056058098"></script>
+<div id="OAS_WidgetLogin_Root"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // init
+        OAS_GAMES_WIDGETS.LoginBox.init();
+    })
+
+    var lang = 'ar';
+    var http_host = '//loar.test.oasgames.com';
+    var oas_host = '//www.oasgames.com';
+    var head_img_url = 'content/themes/oas_homepage/default/static/images/palyer.png';
+    $(function () {
+        var oas_user = getCookie('oas_user');
+            if(oas_user){
+                getLoginuserByCookie(oas_user);
+            }else{
+                $("#login_after_id").html(befor_login_point());
+            }
+            });
+
+
+    function keyLogin() {
+        var event = window.event || arguments.callee.caller.arguments[0];
+        if (event.keyCode == 13) {
+            ajax_login();
+        }
+    }
+    function befor_login_point() {
+
+        //第三方登陆
+        var facebook_site = "{'fail':'Fail to connect with facebook'}";
+        var google_site = "{'fail':'Fail to connect with Google'}";
+        var twitter_site = "{'fail':'Fail to connect with Twitter'}";
+        var other_login = '<a href="javascript:void(0);" onclick="OAS_GAMES_JS.facebook.login(' + facebook_site + ');"><img src="/content/themes/oas_homepage/default_arab_v2/static/images/facebool_18.png" /></a>' +
+                '<a href="javascript:void(0);" onclick="javascript:OAS_GAMES_JS.google.login(' + google_site + ')"><img src="/content/themes/oas_homepage/default_arab_v2/static/images/goo_20.png" /></a>' +
+                '<a href="javascript:void(0);" onclick="javascript:OAS_GAMES_JS.twitter.login(' + twitter_site + ');"><img src="/content/themes/oas_homepage/default_arab_v2/static/images/twitter_22.jpg" /></a>';
+        //'<a href="javascript:void(0);" onclick="alert(0);"><img src="/content/themes/oas_homepage/default_arab_v2/static/images/tdian_24.jpg" /></a>';
+
+        var point = '<div class="befor inborder">' +
+                '<p class="point"></p>' +
+                '<div class="name">' +
+                '<input type="text" name="user_email"  id="user_email"/>' +
+                '</div>' +
+                '<div class="password">' +
+                '<input type="password" name="user_password" id="user_password" onkeydown="keyLogin();"/>' +
+                '</div>' +
+                '<div class="text">' +
+                '<p style="font-size:10px;"><input type="checkbox"  id="checked_pwd" />تذكر كلمة المرور </p>' +
+                '<a style="font-size:10px;" href="' + oas_host + '/?a=ucenter&m=findpwd&lang=' + lang + '" target="_blank" rel="nofollow">نسيت كلمة المرور ?</a>' +
+                '</div>' +
+                '<div class="btn">' +
+                '<a href="javascript:void(0);" onclick="ajax_login();" class="login_btn">تسجيل الدخول</a>' +
+                '<a href="javascript:void(0);" onclick="javascript:OAS_GAMES_WIDGETS.LoginBox.showReg();" class="register_btn">الاشتراك </a>' +
+                '</div>' +
+                '<div class="paretner">' +
+                other_login
+        '</div>' +
+        '</div>';
+        return point;
+
+    }
+
+    function after_login_point(userinfo) {
+        //最近登陆服务器
+        var serverUser = '';
+        //推荐
+        var recom_html = '';
+
+        var pay_url = 'http://debug.pay.oasgames.com/payment/oaspay.php?gid=loar&' + 'uid=' + userinfo.id;
+        if (userinfo.serverlog) {
+            serverUser = '<p class="after_tit">اخر سيرفر تم تسجيل الدخول منه  ：</p>';
+            for (i = 0; i < userinfo.serverlog.length; i++) {
+                serverUser += '<a target="_blank" href="' + http_host + '?a=playgame&server_id=' + userinfo.serverlog[i].server_id + '" class="server_name">' + userinfo.serverlog[i].fullname + '</a>';
+            }
+        }
+        else if (userinfo.recomserver) {
+            recom_html = '<p class="after_tit">السيرفر الموصى به ：</p>';
+            for (i = 0; i < userinfo.recomserver.length; i++) {
+                recom_html += '<a target="_blank" href="' + http_host + '?a=playgame&server_id=' + userinfo.recomserver[i].server_id + '" class="server_name">' + userinfo.recomserver[i].fullname + '</a>';
+            }
+        }
+
+        if (userinfo.nickname) {
+            userinfo.uname = userinfo.nickname;
+        }
+
+        var point = '<div class="after inborder">' +
+                '<div class="player">' +
+                '<div class="headpic">' +
+                '<a href="' + oas_host + '/?a=ucenter&m=myinfo" target="_blank"  rel="nofollow"><img src="' + head_img_url + '" alt="head"/></a>' +
+                '</div>' +
+                '<div class="message">' +
+                '<p class="account"><a rel="nofollow" href="' + oas_host + '/?a=ucenter&m=myinfo&lang=' + lang + '" target="_blank">' + userinfo.uname + '</a></p>' +
+                '<p class="recharge"><a href="' + pay_url + '" target="_blank">الشحن </a></p>' +
+                '<p><a rel="nofollow" href="' + oas_host + '/?a=ucenter&m=myinfo&lang=' + lang + '" target="_blank" class="personal">الصفحة الشخصية </a><a href="javascript:void(0);" onclick="ajax_logout();" class="quit">【خروج 】</a></p>' +
+                '</div>' +
+                '</div>' +
+                serverUser +
+                recom_html +
+                '</div>';
+        return point;
+    }
+
+
+    //登陆
+    function ajax_login() {
+        var email = $("#user_email").val();
+        var pwd = $("#user_password").val();
+        var checked_pwd = $("#checked_pwd").attr('checked');
+        var remember;
+        if (email == '' || pwd == '') {
+            $(".point").html('لا يمكن ترك كلمة المرور فارغه ');
+            return false;
+        } else {
+            $(".point").html('');
+        }
+        if (checked_pwd == 'checked') {
+            remember = 1;
+        }
+        var para = "m=login&email=" + encodeURIComponent(email) + "&pwd=" + encodeURIComponent(pwd) + "&remember=" + remember + "&callback=?";
+        var url = '//passport.oasgames.com';//"http://passport.oasgames.com";
+        $.ajax({
+            'url': url,
+            'async': false,
+            'data': para,
+            'dataType': 'json',
+            'success': function (rs) {
+                if (rs.status == 'ok') {
+                    //用户信息
+                    var userinfo=rs.val;
+                    //服务器信息
+                    $.ajax({'url':http_host+'?a=api&m=ajax_gameRemmServer','async':false,'data':'','dataType':'json',
+                    	'success':function(rs){
+                    		userinfo.recomserver=rs;
+                    	}
+                    });
+                    $.ajax({'url':http_host+'?a=api&m=ajax_gameuserServerLog','async':false,'data':{'uid':userinfo.id},'dataType':'json',
+                     'success':function(rs){
+                    		userinfo.serverlog=rs;
+                    	}
+                    });
+
+                    //location.reload();
+                    $("#login_after_id").html(after_login_point(userinfo));
+                } else if (rs.err_code == 1) {
+                    $(".point").html('اسم المستخدم غير مسجل ');
+                    return false;
+                } else if (rs.err_code == 3) {
+                    $(".point").html('خطاء في كلمة المرور');
+                    return false;
+                } else {
+                    $(".point").html('خطاء في المعلومات ');
+                    return false;
+                }
+            }
+        });
+    }
+
+
+    //注册
+    function ajax_register() {
+        var email = $("#user_email").val();
+        var pwd = $("#user_password").val();
+        if (email == '' || pwd == '') {
+            $(".point").html('لا يمكن ترك كلمة المرور فارغه ');
+            return false;
+        } else {
+            $(".point").html('');
+        }
+
+        var url = '//passport.oasgames.com';
+        var para = "m=register&email=" + email + "&pwd=" + pwd + "&callback=?";
+        $.ajax({
+            'url': url,
+            'async': false,
+            'data': para,
+            'dataType': 'json',
+            'success': function (rs) {
+
+                if (rs.status == 'ok') {
+
+                    //用户信息
+                    var userinfo=rs.val;
+                    //服务器信息
+                    $.ajax({'url':http_host+'?a=api&m=ajax_gameRemmServer','async':false,'data':'','dataType':'json',
+                    	'success':function(rs){
+                    		userinfo.recomserver=rs;
+                    	}
+                    });
+                    $.ajax({'url':http_host+'?a=api&m=ajax_gameuserServerLog','async':false,'data':{'uid':userinfo.id},'dataType':'json',
+                    	'success':function(rs){
+                    		userinfo.serverlog=rs;
+                    	}
+                    });
+                    $("#login_after_id").html(after_login_point(userinfo));
+                } else {
+                    if (rs.err_code == -1) {
+                        $(".point").html('لقد تم حفظ رقم الحساب ');
+                        return false;
+                    } else {
+                        $(".point").html('فشل التسجيل ');
+                        return false;
+                    }
+
+                }
+            }
+        });
+    }
+
+
+    //退出
+    function ajax_logout() {
+        var url = '//passport.oasgames.com';
+        var parm = "m=logout&callback=?";
+        $.ajax({
+            'url': url,
+            'async': false,
+            'data': parm,
+            'dataType': 'json',
+            'success': function (rs) {
+                if (rs.status == 'ok') {
+                    $("#login_after_id").html(befor_login_point());
+                }
+            }
+        });
+    }
+
+    function getCookie(c_name) {
+        var i, x, y;
+        var ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return unescape(y);
+            }
+        }
+    }
+
+    function getLoginuserByCookie(oas_user)
+    {
+        var url = '//passport.oasgames.com';
+        var para = "m=getLoginUser&oas_user=" + oas_user + "&callback=?";
+        $.ajax({
+            'url': url,
+            'async': false,
+            'data': para,
+            'dataType': 'json',
+            'success': function (rs) {
+
+                if (rs.status == 'ok') {
+                    //用户信息
+                    var userinfo = rs.val;
+                    //服务器信息
+                    $.ajax({
+                        'url': http_host + '?a=api&m=ajax_gameRemmServer',
+                        'async': false,
+                        'data': '',
+                        'dataType': 'json',
+                        'success': function (rs) {
+                            userinfo.recomserver = rs;
+                        }
+                    });
+                    $.ajax({
+                        'url': http_host + '?a=api&m=ajax_gameuserServerLog',
+                        'async': false,
+                        'data': {'uid': userinfo.id},
+                        'dataType': 'json',
+                        'success': function (rs) {
+                            userinfo.serverlog = rs;
+                        }
+                    });
+                    $("#login_after_id").html(after_login_point(userinfo));
+                } else {
+                    $("#login_after_id").html(befor_login_point());
+                }
+            }
+        });
+    }
+
+</script>
+
+
+
+<script src="/content/themes/common/static/foxibox/script/jquery-foxibox.js"></script>
+<link href="/content/themes/common/static/foxibox/style/jquery-foxibox.css" rel="stylesheet">		
+<script type="text/javascript">
+			$(document).ready(function(){
+  				$('#img_list_log_id a[rel]').foxibox();
+			});
+</script>
+
+<script>
+$(function(){
+
+	$(".news_bg").songTabTo(function(){
+		});
+	$(".introduce_bg").songTabTo(function(){
+		});
+	$(".picvideo_bg").songTabTo(function(){
+		});
+	});
+</script>
+<script>
+$(function(){
+    /* 用按钮控制图片左右滚动 */
+	$(".JQ-slide").Slide({
+		effect:"scroolLoop",
+		autoPlay:false,
+		speed:"normal",
+		timer:3000,
+		steps:1,
+		
+	});
+
+	$(".JQ-slide_a").Slide({
+		effect:"scroolLoop",
+		autoPlay:false,
+		speed:"normal",
+		timer:3000,
+		steps:1,
+		
+	});
+    
+});
+</script>
+</head>
+<body>
+	<div class="header">
+    	<!--主题图-->
+    	<div class="banner">
+    	    		<embed id="flash_play" width="2000" height="440" quality="high" wmode="transparent" type="application/x-shockwave-flash" src="//img.oasgames.com/oasevent/1472184353.swf">
+    	        	<!--标题栏-->
+        	<div class="nav">
+            	<!--logo左侧-->
+            	<div class="nav_left">
+                	<a href="//loar.test.oasgames.com" target="_blank" class="have_line">الصفحة الرئيسية</a>
+                    <a href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=0"  class="have_line" target="_blank">اعلانات اللعبة </a>
+                    <a href="//loar.test.oasgames.com?m=articleList&ctype=2" target="_blank">معلومات اللعبة </a>
+                </div>
+                <!--logo-->
+                <a href="//loar.test.oasgames.com" class="logo" target="_blank"></a>
+                <!--logo右侧-->
+                <div class="nav_right">
+                	<a href="//support.oasgames.com/?a=question&m=add&game_code=loar&lang=ar" target="_blank" class="have_line">نظام خدمة العملاء</a>
+                    <a href="//www.123.com" target="_blank" class="have_line">المنتدى الرسمي</a>
+                    <a href="https://www.facebook.com/Legend.Online.AR" target="_blank" rel="nofollow">صفحة المعجبين </a>
+                </div>
+            </div>
+        	<!--谷歌点赞-->
+        		<div class="praise_google">
+		<div class="g-plusone" data-size="medium" data-href="https://plus.google.com/108744501959939857732" ></div> 
+		<script type="text/javascript"> 
+		(function() { 
+			var po = document.createElement('script'); po.type='text/javascript'; po.async=true; 
+			po.src = 'https://apis.google.com/js/plusone.js'; 
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); 
+		})(); 
+		</script>
+	</div>
+
+        	<div class="praise_facebook">
+	<iframe src="//www.facebook.com/plugins/like.php?href=https://www.facebook.com/Legend.Online.AR&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px; width:150px;" allowTransparency="true"></iframe>
+</div>
+        </div>
+    </div>
+    <!--Facebook点赞-->
+        	
+
+  <!--内容区渐变背景-->
+    <div class="main_bg">
+    	<!--宽度1000px 居中内容区-->
+    	<div class="main">
+        	<!--右侧栏-->
+        	<div class="main_left">
+            	<!--开始游戏-->
+            	<style>
+					.start_game{height: 122px;position: absolute;width: 260px;left:px;top:-140px}
+				</style>
+            	<div class="start_game">
+            		                		<object type="application/x-shockwave-flash" data="//img.oasgames.com/oasevent/1444461624.swf" width="260px" height="122px" onmousedown="window.open('//loar.test.oasgames.com?a=playgame','_blank');">
+							<param name="movie" value="//img.oasgames.com/oasevent/1444461624.swf" />
+							<param name="swfversion" value="9.0.45.0" />
+                			<param name="allowScriptAccess" value="always" />
+                			<param name="wmode" value="transparent">
+                		</object>
+                	                </div>
+                <!--登录框-->
+                <div class="login outborder">
+                	<span id="login_after_id"></span>  
+                </div>
+                <!--下载按钮-->
+                                <a href="//loar.test.oasgames.com?a=download&type=1&down_url=//www.kehuduanxiazai.com&position=home_page" class="download" target="_blank">تحميل سيرفر التسجيل</a>
+                                
+                                
+                <script>
+                    function sub_server_lsit()
+                    {
+                        var host	=	'//loar.test.oasgames.com';
+                        var server_id	= $("#server_name_id").val();
+                        window.open(host+'?a=playgame&server_id='+server_id,"_blank");
+                    }
+                </script>
+                <!--服务器列表-->
+                <div class="server_list outborder">
+                	<div class="server_list_bg inborder">
+                		<h1 class="left_list_tit">قائمة السيرفرات  </h1>
+                        <div class="opt_server">
+                            <p>اختيار سريع للسيرفر</p>
+                            <input type="text" name="server" id="server_name_id"/>
+                            <a href="javascript:void(0);" onclick="sub_server_lsit();">بدء العبة</a>
+                        </div>
+                        <ul>
+		                                        	                        	<li>
+                            	<span></span>
+                                <a href="//loar.test.oasgames.com?a=playgame&server_id=3" target="_blank">OAS-1997:rgfse</a>
+                            </li>
+                                                    	<li>
+                            	<span></span>
+                                <a href="//loar.test.oasgames.com?a=playgame&server_id=16" target="_blank">S16:16</a>
+                            </li>
+                                                    	<li>
+                            	<span></span>
+                                <a href="//loar.test.oasgames.com?a=playgame&server_id=22" target="_blank">OAS-1978:test22</a>
+                            </li>
+                                                        				            					            						            		<li>
+				            			<span></span>
+				                  		<a href="//loar.test.oasgames.com?a=playgame&server_id=233" target="_blank">S233:test</a>
+				               		</li>
+				               						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            						            					            				                                 </ul>
+                        <a href="//loar.test.oasgames.com?m=serverList" class="more_server" target="_blank">البحث عن المزيد من السيرفرات</a>
+                    </div>
+                </div>
+                <!--facebook列表-->
+                                <div class="facebook_show outborder">
+                	<div class="facebook_show_bg inborder">
+                    	<h1 class="left_list_tit">
+                    	Facebook
+                    	</h1>
+                    	<iframe  scrolling="yes" style="width:256px; margin-left:0px;height:467px;"   frameborder="0" src="https://www.facebook.com/plugins/likebox.php?href=www.facebook.com/Legend.Online.AR&width=230&colorscheme=dark&show_faces=false&stream=true&header=false&height=450"  allowtransparency="true"></iframe>
+                    </div>
+                </div>
+                                <!--客服邮箱-->
+                                <div class="service outborder">
+                    <h1>ايميل خدمة العملاء </h1>
+                    <p><a href="Mailto:loar_support@oasgame.com">نظام خدمة العملاء</a></p>
+                </div>
+                            </div>	
+            <!--左侧栏-->
+            <div class="main_right">
+            	<!--上部分-->
+            	<div class="right_top">
+                    <!--轮播图-->
+                    <div class="active outborder">
+                        <div id="slide">
+							<iframe scrolling="yes" src="http://plugins.oasgames.com/lunbo/weget/index.php?type_id=123" style="width:100%;border:0px;height:224%;overflow:hidden;"></iframe>
+                        </div>
+                    </div>
+                    <!--新闻菜单-->
+                    <div class="news outborder">
+                    	<div class="news_bg inborder">
+                        	<ul class="news_tit">
+                            	                            		<li class="hover"><a class="hight38px" href="javascript:void(0)">热点</a></li>
+                                                            		<li ><a class="hight38px" href="javascript:void(0)">新闻</a></li>
+                                                            		<li ><a class="hight38px" href="javascript:void(0)">123</a></li>
+                                                            		<li ><a class="hight38px" href="javascript:void(0)">公告</a></li>
+                                                                
+                            </ul>
+                            <ul class="news_con">
+                            	                            		
+                            		<li style="display:block;">
+                                		<ul class="news_con_tab">
+                                    			
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//">测试20151022</a>
+                                        		<p class="day">2015-10-22</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=665">活动test</a>
+                                        		<p class="day">2015-10-16</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=661"> إعلان الصيانة</a>
+                                        		<p class="day">2015-10-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=660">يوم الموسيقى العالمي</a>
+                                        		<p class="day">2015-10-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=652">测试创建时间为0的问题修复测试-1</a>
+                                        		<p class="day">2015-08-10</p>
+                                        	</li>
+                                   		 	                                   		 </ul>
+                                    
+                                    <a href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=0" class="more">المزيد>></a>
+                                	</li>
+                                                            		
+                            		<li style="display:none;">
+                                		<ul class="news_con_tab">
+                                    			
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=660">يوم الموسيقى العالمي</a>
+                                        		<p class="day">2015-10-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=652">测试创建时间为0的问题修复测试-1</a>
+                                        		<p class="day">2015-08-10</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=651">测试创建时间为0的问题</a>
+                                        		<p class="day">2015-08-10</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//www.baidu.com">wangjunchao</a>
+                                        		<p class="day">2014-10-11</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1">[新闻]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=221">你好啊！</a>
+                                        		<p class="day">2014-09-25</p>
+                                        	</li>
+                                   		 	                                   		 </ul>
+                                    
+                                    <a href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=1" class="more">المزيد>></a>
+                                	</li>
+                                                            		
+                            		<li style="display:none;">
+                                		<ul class="news_con_tab">
+                                    			
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=665">活动test</a>
+                                        		<p class="day">2015-10-16</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=168">5Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-25</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=158">2Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-25</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=160">6Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2">[123]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=167">3Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-12</p>
+                                        	</li>
+                                   		 	                                   		 </ul>
+                                    
+                                    <a href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=2" class="more">المزيد>></a>
+                                	</li>
+                                                            		
+                            		<li style="display:none;">
+                                		<ul class="news_con_tab">
+                                    			
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//">测试20151022</a>
+                                        		<p class="day">2015-10-22</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=661"> إعلان الصيانة</a>
+                                        		<p class="day">2015-10-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=173">4Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=172">3Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-12</p>
+                                        	</li>
+                                   		 		
+                                    		<li>
+                                        		<a class="tit" target="_blank"  href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3">[公告]</a>
+                                        		<a class="con" target="_blank"  href="//loar.test.oasgames.com?m=showArticle&aid=171">3Kim Legend Online sıralamasının kahr...</a>
+                                        		<p class="day">2014-09-12</p>
+                                        	</li>
+                                   		 	                                   		 </ul>
+                                    
+                                    <a href="//loar.test.oasgames.com?m=articleList&ctype=1&sub_type=3" class="more">المزيد>></a>
+                                	</li>
+                                                                
+                            </ul>
+                          
+                        </div>
+                    </div>
+                </div>
+                <!--四个活动-->
+                <ul class="act">
+                	                	<li class="outborder">
+                		                		<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&sub_type=4&aid=664">
+                		                			<img src="//img.oasgames.com/oasevent/1444974166.jpg"/>
+                		</a>
+                		</li>
+                                    	<li class="outborder">
+                		                		<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&sub_type=4&aid=657">
+                		                			<img src="//img.oasgames.com/oasevent/1444618081.jpg"/>
+                		</a>
+                		</li>
+                                    	<li class="outborder">
+                		                		<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&sub_type=4&aid=655">
+                		                			<img src="//img.oasgames.com/oasevent/1444617915.jpg"/>
+                		</a>
+                		</li>
+                                    	<li class="outborder">
+                		                		<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&sub_type=4&aid=192">
+                		                			<img src="//img.oasgames.com/oasevent/1410851716.jpg"/>
+                		</a>
+                		</li>
+                                    </ul>
+                <!--人物介绍-->
+                <div class="introduce outborder">
+                	<div class="introduce_bg inborder">
+                    	
+                    	<ul class="introduce_tit">
+                        		
+                        	<li class="hover" ><a class="hight38px" href="javascript:void(0)">1游戏角色介绍</a></li>
+                            	
+                        	<li  ><a class="hight38px" href="javascript:void(0)">2角色介绍</a></li>
+                            	
+                        	<li  ><a class="hight38px" href="javascript:void(0)">3游戏角色介绍</a></li>
+                            	
+                        	<li  ><a class="hight38px" href="javascript:void(0)">4游戏角色介绍</a></li>
+                                                    </ul>
+                        <ul class="introduce_con">
+                        	                            <li >
+                            	<div style="background:url(//img.oasgames.com/oasevent/1445327289.jpg); width:400px; height:275px; padding-right:306px;" >
+                                	<p><span style="color: rgb(112, 48, 160); font-size: 16px;"><strong><span style="font-family: Arial, sans-serif; font-size: 16px;" dir="RTL"><br/></span></strong></span></p><p><span style="color: rgb(112, 48, 160); font-size: 16px;"><strong><span style="font-family: Arial, sans-serif; font-size: 16px;" dir="RTL"><br/></span></strong></span></p><p><span style="color: rgb(112, 48, 160); font-size: 16px;"><strong><span style="font-family: Arial, sans-serif; font-size: 16px;" dir="RTL">لمحاربين&nbsp;&nbsp;الشجعان
+ لديهم شخصية قوية وقدرةعاليةعلى 
+الهجوم،المحاربات&nbsp;لديهن&nbsp;شخصية&nbsp;قوية&nbsp;وصريحة&nbsp;مع إرادة قوية، دائماً ما تكون 
+محط إعجاب جميع المحاربين.</span></strong></span></p>
+                                                                	<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&aid=658">المزيد>></a>
+                                                                </div>
+                            </li>
+                                                        <li style="display:none">
+                            	<div style="background:url(); width:400px; height:275px; padding-right:306px;" >
+                                	<p>顶部公告顶部公告顶部公告顶部公告顶部公告顶部公告</p>
+                                                                	<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&aid=191">المزيد>></a>
+                                                                </div>
+                            </li>
+                                                        <li style="display:none">
+                            	<div style="background:url(); width:400px; height:275px; padding-right:306px;" >
+                                	<p><span style="font-family:&#39;"><span style="font-size:12px;font-family:Arial;color:#DFC5A4"> Her Sembol günde 100 Sembol ile birleştirilir.</span><br/> <span style="font-size:12px;font-family:Arial;color:#DFC5A4"> Sembol geliştirmede Sembol Taşı harcanır. </span><br/> <span style="font-size:12px;font-family:Arial;color:#DFC5A4"> Sembol Becerisinde karşılık gelen Sembol ile birleştirildiğinde 100 EXP, farklı bir Sembol ile birleştirildiğinde 10 EXP artar.</span></span></p>
+                                                                	<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&aid=188">المزيد>></a>
+                                                                </div>
+                            </li>
+                                                        <li style="display:none">
+                            	<div style="background:url(//img.oasgames.com/oasevent/1410849656.jpg); width:400px; height:275px; padding-right:306px;" >
+                                	<p><span style="font-family:&#39;"><span style="font-size:12px;font-family:Arial;color:#DFC5A4">Sembol sistemi 35. Seviyede açılır.</span><br/> <span style="font-size:12px;font-family:Arial;color:#DFC5A4"> Her mesleğin öğrenmesi gereken sembol çeşidi farklıdır. (Savaşçı Defans, Büyücü Temiz, Yaycı Dağınık öğrenemez.)</span><br/> <span style="font-size:12px;font-family:Arial;color:#DFC5A4"> Semboller Top Arabası Etkinliğinden elde edilir. Gizemli Marketten Sembol Becerisi, Marketten Sembol elde edilebilir.</span></span></p>
+                                                                	<a target="_blank" href="//loar.test.oasgames.com?m=showArticle&ctype=3&aid=187">المزيد>></a>
+                                                                </div>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!--游戏资料-->
+                <div class="gamedata outborder">
+                	<div class="gamedata_bg inborder">
+                    	<h3>
+                        	游戏文案
+                        </h3>
+                                                <ul>
+                        	                        	                                                    	                        	<li>
+                            	<a href="//loar.test.oasgames.com?m=articleList&ctype=2&sub_type=1" target="_blank" class="gamedata_tit">
+                                		<img src="//img.oasgames.com/oasevent/1444296350.jpg" width="90" height="40"/>
+                                		新手入门
+                                </a>
+                                <div class="gamedata_con" >
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=659">تعريف الوظائف</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=175">新手入门2</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=174">新手入门1</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=170">3Kim Legend Online sırala</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=157">新手入门3</a>丨
+                                	                                </div>
+                            </li>
+                                                                                	                        	<li>
+                            	<a href="//loar.test.oasgames.com?m=articleList&ctype=2&sub_type=2" target="_blank" class="gamedata_tit">
+                                		<img src="//img.oasgames.com/oasevent/1444296364.jpg" width="90" height="40"/>
+                                		高手进阶
+                                </a>
+                                <div class="gamedata_con" >
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=179">5xinshourumenxinshourumen</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=180">6xinshourumenxinshourumen</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=181">7xinshourumenxinshourumen</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=176">1高手进阶高手进阶高手进阶高手进阶</a>丨
+                                	                                </div>
+                            </li>
+                                                                                	                        	<li>
+                            	<a href="//loar.test.oasgames.com?m=articleList&ctype=2&sub_type=3" target="_blank" class="gamedata_tit">
+                                		<img src="//img.oasgames.com/oasevent/1444296376.jpg" width="90" height="40"/>
+                                		特色系统
+                                </a>
+                                <div class="gamedata_con" >
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=184">3tesexitongtesexitongtese</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=183">2tesexitongtesexitongtese</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=182">1tesexitongtesexitongtese</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=177">1特色系统特色系统特色系统特色系统</a>丨
+                                	                                </div>
+                            </li>
+                                                                                	                        	<li>
+                            	<a href="//loar.test.oasgames.com?m=articleList&ctype=2&sub_type=4" target="_blank" class="gamedata_tit">
+                                		<img src="//img.oasgames.com/oasevent/1444296390.jpg" width="90" height="40"/>
+                                		多重玩法
+                                </a>
+                                <div class="gamedata_con" >
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=662">روليت البركة </a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=186">tesexitong</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=185">1tesexito</a>丨
+                                	                                	<a target="_blank"  href="//loar.test.oasgames.com?m=showArticle&ctype=2&aid=178">11111111111</a>丨
+                                	                                </div>
+                            </li>
+                                                                                </ul>
+                                            </div>
+                </div>
+                
+				<div id="mask" style="filter:alpha(opacity=30);-moz-opacity:0.3;opacity:0.3;background-color:#000;width:100%;height:100%;z-index:1000;position: absolute;left:0;top:0;display:none;overflow: hidden;"> 
+				</div>
+				<div class="fivehide" style="width:640px; height:480px; position:absolute;">	
+					<p class="closewin"><img src="/content/themes/oas_homepage/default_arab_v2/static/images/close.gif"/></p>
+				</div>
+                
+                <!--截图视频-->
+                <div class="picvideo outborder">
+                	<div class="picvideo_bg inborder">
+                    	<ul class="picvideo_tit">
+                        	
+                        	<li class="hover"><a href="javascript:void(0)" class="hight38px">الصور </a></li>
+                            <li ><a class="hight38px" href="javascript:void(0)">الفيديوهات </a></li>
+                            
+                        </ul>
+                        <ul class="picvideo_con">
+                        	<li>
+                                <div class="JQ-slide" style="margin-right:32px;">
+                                    <div class="JQ-slide-nav"><a class="prev" href="javascript:void(0);">‹</a><a class="next" href="javascript:void(0);">›</a></div>
+                                    <div class="wrap" id="img_list_log_id">
+                                        <ul class="JQ-slide-content imgList" style="width: 1216px; right:0px; border:1px;">
+                                        	                                        	<li><a rel="[gall]" title="first picture" href="//img.oasgames.com/oasevent/1444905389.png"><img src="//img.oasgames.com/oasevent/5444905397.png" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856702.jpg"><img src="//img.oasgames.com/oasevent/1410856686.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856666.jpg"><img src="//img.oasgames.com/oasevent/1410856617.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856539.jpg"><img src="//img.oasgames.com/oasevent/1410856515.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856492.jpg"><img src="//img.oasgames.com/oasevent/1410856469.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856129.jpg"><img src="//img.oasgames.com/oasevent/1410856114.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856079.jpg"><img src="//img.oasgames.com/oasevent/1410856064.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410855978.jpg"><img src="//img.oasgames.com/oasevent/1410855966.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410855924.jpg"><img src="//img.oasgames.com/oasevent/1410855891.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        	<li><a rel="[gall]"  href="//img.oasgames.com/oasevent/1410856004.jpg"><img src="//img.oasgames.com/oasevent/1410856017.jpg" width="150" height="90" alt="" title=""></a></li>
+                                        	                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="//loar.test.oasgames.com?m=imgList&mtype=1" target="_blank" class="more">المزيد>></a>
+                                
+                            </li>
+                           
+                            <li style="display:none">
+                                <div class="JQ-slide_a" style="margin-right:32px;">
+                                        <div class="JQ-slide-nav"><a class="prev" href="javascript:void(0);">‹</a><a class="next" href="javascript:void(0);">›</a></div>
+                                        <div class="wrap">
+                                            <ul class="JQ-slide-content imgList" style="width: 1216px; right: 0px;">
+                                        		    
+                                            	<li><a href="javascript:void(0);" class="img vodie"><img src="//img.oasgames.com/oasevent/1444618251.jpg" width="162" height="97" alt="" onclick="showSwf('//img.oasgames.com/oasevent/1444618168.flv');"></a></li>
+                                        		    
+                                            	<li><a href="javascript:void(0);" class="img vodie"><img src="//img.oasgames.com/oasevent/1410857537.jpg" width="162" height="97" alt="" onclick="showSwf('//img.oasgames.com/oasevent/1410857571.flv');"></a></li>
+                                        		    
+                                            	<li><a href="javascript:void(0);" class="img vodie"><img src="//img.oasgames.com/oasevent/1410857429.png" width="162" height="97" alt="" onclick="showSwf('//img.oasgames.com/oasevent/1410857453.flv');"></a></li>
+                                        		    
+                                            	<li><a href="javascript:void(0);" class="img vodie"><img src="//img.oasgames.com/oasevent/1410857258.png" width="162" height="97" alt="" onclick="showSwf('//img.oasgames.com/oasevent/1410857320.flv');"></a></li>
+                                        		    
+                                            	<li><a href="javascript:void(0);" class="img vodie"><img src="//img.oasgames.com/oasevent/1410857229.png" width="162" height="97" alt="" onclick="showSwf('//img.oasgames.com/oasevent/1410857157.flv');"></a></li>
+                                        		                                            </ul>
+                                        </div>
+                                    </div>
+                                
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--清除浮动-->
+                <div class="clear"></div>
+            </div>
+            <!--清除浮动-->
+        	<div class="clear"></div> 
+        </div>
+<!--             <script type="text/javascript">
+  window.onload=function(){
+   function adsorption(){
+    var leftfix=document.getElementById('fix_left');
+	var rightfix=document.getElementById('fix_right');
+    var scrollTop=0;
+    window.onscroll=function(){
+     scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+     if(scrollTop>140){
+      leftfix.className='fix_left';
+	  rightfix.className='fix_right';
+     }else{
+	  leftfix.className='left_fix';
+      rightfix.className='right_fix';
+     }
+    }
+   }
+   adsorption();
+  }
+ </script>
+    <div class="fix_left" id="fix_left">
+    	<div class="advert">
+        	
+            <a href="#" target="_blank"><img src="images/100-300.jpg" /></a>
+            <div class="ad_close" onclick=" javascript:this.parentNode.parentNode.style.display='none';">
+            
+            </div>
+        </div>
+    </div>
+    <div class="fix_right" id="fix_right">
+    	<div class="advert">
+        	
+            <a href="#" target="_blank"><img src="images/100-300.jpg" /></a>
+            <div class="ad_close" onclick=" javascript:this.parentNode.parentNode.style.display='none';">
+            
+            </div>
+        </div>
+    </div>
+    </div>-->
+<script>
+if(top.location != location)  
+{  
+	top.location.href = location.href;  
+}  
+</script>
+<input type="hidden" id="facebook_app_id" value="340989056058098">
+<input type="hidden" id="google_app_id" value="684208335311.apps.googleusercontent.com">
+<input type="hidden" id="passport_url_id" value="//passport.oasgames.com">
+<input type="hidden" id="http_host_id" value="//loar.test.oasgames.com">
+<input type="hidden" id="res_url_id" value="//res.oasgames.com">
+<input type="hidden" id="domian_url_id" value="oasgames.com">
+<input type="hidden" id="oas_host_id" value="//www.oasgames.com">
+<script type="text/javascript" src="/content/themes/oas_homepage/common/static/js/oas_library.js?1"></script>
+
+<script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+    
+    _gaq = [];
+
+
+    function _ga_track_pageview(trackUrl)
+    {
+        ga('send', 'pageview',{page:trackUrl});
+    }
+
+    function _ga_track_event(category,action)
+    {
+        ga('send', 'event', category, action);
+    }
+
+</script>
+
+
+<div class="footer">
+        <iframe width="100%" scrolling="no" height="110" frameborder="0" src="//www.oasgames.com/?a=widget&m=footer&lang=ar&color=#999" framemargin="0"allowtransparency="true"></iframe>
+    </div>
+</body>
+</html>
