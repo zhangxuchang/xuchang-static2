@@ -6,13 +6,15 @@
 </head>
 <body>
 
+<h3>SSO Developing test page</h3>
+
 <iframe id="ifm-sso-cross-domain" src="http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html" style="display: none;"></iframe>
 
 <script type="text/javascript">
 
 
     function dataDetact() {
-        var uri = document.getElementById("ifm-sso-cross-domain").currentWindow.location;
+        var uri = document.getElementById("ifm-sso-cross-domain").contentWindow.location.href;
         console.log(uri);
     }
 

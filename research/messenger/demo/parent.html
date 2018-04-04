@@ -64,7 +64,7 @@
     }
 
     function openWindow() {
-        var outerWindow = window.open("http://biqinglabs.duapp.com/messenger/child.html", "_blank", "width=603,height=489,location=yes,status=yes,toolbar=no,resizable=no");
+        var outerWindow = window.open("child.html", "_blank", "width=603,height=489,location=yes,status=yes,toolbar=no,resizable=no");
         messenger.addTarget(outerWindow, 'childWindow');
         document.getElementById("child").innerHTML = "send to child window";
         document.getElementById("child").onclick = function(){
