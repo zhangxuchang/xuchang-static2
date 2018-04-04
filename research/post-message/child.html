@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Child page: send message to parent page in different domain</h3>
+
+<div>
+    <input id="txt_input" type="text"/>
+    <a href="javascript:sendMessageToParent()">send message</a>
+</div>
+
+<script type="text/javascript">
+
+    function sendMessageToParent() {
+
+        var win = parent.window;
+        var msg = document.getElementById('txt_input').value;
+
+        win.postMessage(msg,"*");
+    }
+
+</script>
+
+
+</body>
+</html>
