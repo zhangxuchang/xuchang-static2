@@ -23,6 +23,17 @@
         win.postMessage(msg,"*");
     }
 
+    function sendHeartBeatData() {
+
+        var win = parent.window;
+        var msg = {'heart_beat': Date.now()};
+        win.postMessage(msg,"*");
+    }
+
+    setInterval(function () {
+        sendHeartBeatData();
+    },3000)
+
 </script>
 
 

@@ -8,21 +8,15 @@
 
 <h3>SSO Developing test page</h3>
 
-<iframe id="ifm-sso-cross-domain" src="http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html" style="display: none;"></iframe>
-
+<script src="//img.oasgames.com/upload/1513737892/static/js/jquery.js"></script>
+<script id="oas-core-sso-guard"
+        data-login-domain=".oasgames.com"
+        data-login-session-start-time="1522836761"
+        data-login-cookies="oas-user1,oas-user2,oas-user3"
+        data-login-url="https://admin-odp3.oasgames.com/panel/login"
+        type="text/javascript"
+        src="http://xuchang-stat.oasgames.com/plugins/core-sso-guard/sso-guard.js?4"></script>
 <script type="text/javascript">
-
-
-    function dataDetact() {
-        var uri = document.getElementById("ifm-sso-cross-domain").contentWindow.location.href;
-        console.log(uri);
-    }
-
-    setInterval(function () {
-        dataDetact();
-    },3000);
-
-
 </script>
 
 </body>
