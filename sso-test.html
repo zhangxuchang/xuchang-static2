@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<iframe id="ifm-sso-cross-domain" src="http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html" style="display: none;"></iframe>
+
+<script type="text/javascript">
+
+
+    function dataDetact() {
+        var uri = document.getElementById("ifm-sso-cross-domain").currentWindow.location;
+        console.log(uri);
+    }
+
+    setInterval(function () {
+        dataDetact();
+    },3000);
+
+
+</script>
+
+</body>
+</html>
