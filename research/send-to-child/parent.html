@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Parent page: Send data to child page</h3>
+
+<iframe id="frame" src="child.html" style="width: 500px; height: 300px;"></iframe>
+
+<div>
+    <a href="javascript:print()">Print</a>
+</div>
+
+<script type="text/javascript">
+
+    var frame = document.getElementById('frame');
+
+    function sendIFrameData( frame, data ){
+        var idx = frame.src.indexOf('#'), url = frame.src;
+        if ( idx > -1 ){
+            url = url.substr(0, idx);
+        }
+
+        frame.src = url + '#' + window.btoa(JSON.stringify(data));
+    }
+
+    // send arbitrary data to the iframe
+    sendIFrameData( frame, { text: "Hello world" } );
+
+    setTimeout(function(){
+        sendIFrameData( frame, { text: "How are you today?" } );
+    }, 5000);
+
+
+    function print()
+    {
+        console.log(frame.src);
+    }
+
+</script>
+
+</body>
+</html>

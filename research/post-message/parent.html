@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parent page</title>
+</head>
+<body>
+
+<h3>Parent page: receive data from child page</h3>
+
+<iframe id="frame" src="http://sso-guard.oasisgames.cn/research/post-message/child.html" style="width: 600px; height: 300px;"></iframe>
+
+<pre id="txt_output"></pre>
+
+<script type="text/javascript">
+    function handleReceive(data) {
+        console.log('message received:');
+        console.log(data);
+
+        // output
+        var newline = '\n';
+        var text = document.createTextNode('>' + data.data + newline);
+        document.getElementById('txt_output').appendChild(text);
+    }
+
+    window.addEventListener("message",handleReceive,false);
+
+</script>
+</body>
+</html>

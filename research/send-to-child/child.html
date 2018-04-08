@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h4>Child page: print received data</h4>
+<p id="log"></p>
+
+<script type="text/javascript">
+
+    var el = document.getElementById('log');
+
+    function getHashData(){
+        var data;
+        try {
+            data = JSON.parse(window.atob(window.location.hash.substr(1)));
+        } catch( e ){}
+        return data;
+    }
+
+    function showMsg(){
+        var data = getHashData();
+        if ( data && data.text ){
+            el.innerHTML += "<br/>Received msg: " + data.text;
+        }
+    }
+
+    // in case we sent data on first load.
+    showMsg();
+
+    // when the hash changes we check the new data and print it out
+    window.addEventListener('hashchange', function(){
+        showMsg();
+    });
+
+</script>
+
+</body>
+</html>
