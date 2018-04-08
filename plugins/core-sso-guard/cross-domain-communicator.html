@@ -2,30 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cross domain communicator</title>
+    <title>Title</title>
 </head>
 <body>
 
 <h3>Oasis core cross domain communicator</h3>
 
-<div>
-    <a href="javascript:putDataToLocation()">Detact</a>
-</div>
-
 <script type="text/javascript">
 
-    
-    function putDataToLocation() {
-        var href = window.location.href = "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?a=1#key=" + Date.now();
+    function sendHeartBeatData() {
 
-        console.log("my url is: " + href);
+        var win = parent.window;
+        var msg = {'user_login_time': Date.now()};
+        win.postMessage(msg,"*");
     }
 
     setInterval(function () {
-        putDataToLocation();
+        sendHeartBeatData();
     },3000)
 
 </script>
+
 
 </body>
 </html>
