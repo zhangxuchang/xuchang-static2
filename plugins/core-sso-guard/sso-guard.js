@@ -6,7 +6,7 @@
 
 window.OasisCoreSSOGuard = {
 
-    coreProxyPage: "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?1",
+    coreProxyPage: "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?2",
     loginCookies: [],
     loginSessionStartTime: 0,
     loginUrl: '',
@@ -19,6 +19,8 @@ window.OasisCoreSSOGuard = {
     },
     
     dataInitialize: function (data) {
+
+        this.output('data initialize:'); console.log(data);
 
         if(typeof(data.loginCookies) == 'undefined' || data.loginCookies.length == 0) {
             this.output('parameter missing: data-login-cookies');
@@ -67,13 +69,14 @@ window.OasisCoreSSOGuard = {
             return;
         }
 
-        console.log(data);
-
         if(typeof(data.user_login_time) == 'undefined'){
-            this.output("can not read 'user_login_time' from proxy message");
+            this.output("can not read 'user_login_time' from proxy message: ");
+            console.log(data);
             return;
         }
+
         if(data.user_login_time <= this.loginSessionStartTime){
+            this.output('core user_login_time=' + data.user_login_time);
             return;
         }
         // clear login cookie and redirect to login url
@@ -82,7 +85,7 @@ window.OasisCoreSSOGuard = {
             this.output('delete cookie: ' + this.loginCookies[i]);
         }
 
-        //window.top.location.href = this.loginUrl;
+        window.top.location.href = this.loginUrl;
     },
 
     eventRegister: function () {
