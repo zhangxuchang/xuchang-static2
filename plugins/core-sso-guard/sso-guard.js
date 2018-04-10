@@ -74,9 +74,11 @@ window.OasisCoreSSOGuard = {
             console.log(data);
             return;
         }
+        else{
+            this.output('core user_login_time=' + data.user_login_time);
+        }
 
         if(data.user_login_time <= this.loginSessionStartTime){
-            this.output('core user_login_time=' + data.user_login_time);
             return;
         }
         // clear login cookie and redirect to login url
