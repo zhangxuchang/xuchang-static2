@@ -1,6 +1,6 @@
 ##Login with gogen
 ```ret1
-User ID: 1277448299058011
+User ID: 1277448299058011  (This is not  the user facebook app id)
 Phone Number: +8615801309846
 Email:
 Access Token: EMAWeArNqYSbFNhBRJ8SG4GstujjgWD9drIxDZBH28y7DiPRPlZBBZCcIbL8ecIJrYWxVGQHPjY9ZAClykym3BArlce3RfXK3l9m3NdhdcWZB2f66NdilFqly1J90v9UTrn0WC8IoK6dso7W25uY04Sg0hQIR4SmtEZD
