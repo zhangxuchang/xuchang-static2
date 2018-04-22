@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 // Initialize variables
-$app_id = '1783763545187611';
-$secret = 'a9254cdaa78fe810c13ed9e0a76f308d';
+$app_id = '104847996567457';
+$secret = 'b929482d41bc35187c29e77f2b33e9b6';
 $version = 'v1.1'; // 'v1.1' for example
 
 // Method to send Get request to url
@@ -24,6 +24,9 @@ $data = doCurl($token_exchange_url);
 $user_id = $data['id'];
 $user_access_token = $data['access_token'];
 $refresh_interval = $data['token_refresh_interval_sec'];
+
+echo json_encode($data);
+exit;
 
 // Get Account Kit information
 $me_endpoint_url = 'https://graph.accountkit.com/'.$version.'/me?'.
