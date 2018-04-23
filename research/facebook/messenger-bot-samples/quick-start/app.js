@@ -76,7 +76,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = "<YOUR VERIFY TOKEN>";
+  const VERIFY_TOKEN = "zxc-webhook-test-1";
   
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
@@ -145,19 +145,19 @@ function handleMessage(sender_psid, received_message) {
 }
 
 function handlePostback(sender_psid, received_postback) {
-  console.log('ok')
-   let response;
-  // Get the payload for the postback
-  let payload = received_postback.payload;
+    console.log('ok')
+    let response;
+    // Get the payload for the postback
+    let payload = received_postback.payload;
 
-  // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
-  }
-  // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+    // Set the response based on the postback payload
+    if (payload === 'yes') {
+      response = { "text": "Thanks!" }
+    } else if (payload === 'no') {
+      response = { "text": "Oops, try sending another image." }
+    }
+    // Send the message to acknowledge the postback
+    callSendAPI(sender_psid, response);
 }
 
 function callSendAPI(sender_psid, response) {
