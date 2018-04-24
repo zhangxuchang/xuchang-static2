@@ -1,0 +1,4 @@
+module.exports = {
+    "PAGE_ACCESS_TOKEN": "EAALoeyS7wQEBAN032tJKV6ADFexxO6E6jiRYFdIWR3xovqUFmtmfjj1VCBgCgZCjGeb1fsI6RYHbKCrz6pmePJlKP16QHnAZCQQa5QLWtYY1ACdfxCtREppgsdvfBMcCfda5JDOGgq7jD6F3Czl79ZBZCVRgQ6JFj1GTjzyh4AZDZD",
+    "VERIFY_TOKEN": "zxc-webhook-test-1"
+}
