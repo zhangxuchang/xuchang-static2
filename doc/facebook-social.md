@@ -155,13 +155,31 @@ Messenger bot 可以反馈一些效果来提升用户体验，比如处理reques
 待处理结束后再返回一个 typing off 和处理结果
 
 #### Handover Protocol
-通过 handover protocol 我们可以提供用户在于bot交流的时候切换到与真实客服人员沟通
+通过 handover protocol 我们可以提供用户在于bot交流的时候切换到与真实客服人员沟通，如:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a11.png)
+
+用户选择 “Pass to Inbox”， 消息的处理就会交到 FB Page的Inbox，由真实人员处理。直至conversion结束再交回messenger bot:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a12.png)
 
 ### Messenger Bot 推广
 
-### Messenger Bot 插件(Chat extension)
+#### Chat plugin
+可以挂载在网页上，用户可以直接与bot沟通
 
 ![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a7.png)
+
+#### Discover Tab
+为了让新用户浏览或搜索到我们的messenger bot,需要将bot提交到 Discover，这个在Page 管理后台的Discover Settings 处设置提交:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a13.png)
+
+#### Messenger Codes
+
+messenger codes 就像是二维码效果一样，可以让通用通过扫描来把 messenger bot 加入自己的联系人:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a15.png)
 
 ### 用户身份识别(IDs&Profile)
 
@@ -184,4 +202,14 @@ GET /{user-id}
 ### 支付(beta)
 
 Messenger 平台提供的支付功能目前还处于beta阶段
+
+### Instant games
+
+Messenger 平台内的instant game具有以下特征:
+
+* 免安装
+* “与好友一起玩”模式能做到自传播
+* 内嵌广告推广App安装
+
+可以用作一种推广模式
 
