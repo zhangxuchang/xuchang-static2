@@ -57,24 +57,24 @@ Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机�
 
 ### Messenger Bot 特性
 
-### 固定菜单
+#### 固定菜单
 方便用户了解并快捷使用bot提供的主要功能
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a1.png)
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a5.png)
 
 * 通过菜单按钮用户可以快速向bot发送一个指令或访问某个网址(URL)
 * 菜单支持内嵌子菜单
 * 菜单文字可以支持本地化设置
 
 
-#### (1).Built-in NLP
+#### Built-in NLP
 Messenger 平台提供了内置的自然语言处理功能，
 
 ### Messenger Bot 推广
 
 ### Messenger Bot 插件(Chat extension)
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/chat-ex-shot.png)
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a7.png)
 
 ### 用户身份识别(IDs&Profile)
 
