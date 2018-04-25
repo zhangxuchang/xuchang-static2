@@ -31,14 +31,22 @@ window.OasisCoreSSOGuard = {
             this.loginCookies = data.loginCookies.split(",");
         }
         if(typeof(data.loginSessionStartTime) == 'undefined' || data.loginSessionStartTime.length == 0) {
-            this.output('parameter missing: data-login-session-start-time');
-            this.guardStarted = false;
+
+            var startTime = this.getCookie('oasis-core-token-session-start-time');
+            if(startTime.length == 0){
+                this.output('parameter missing: data-login-session-start-time AND oasis-core-token-session-start-time cookie is empty');
+                this.guardStarted = false;
+            }
+            else{
+                this.loginSessionStartTime = parseInt(startTime);
+            }
         }
         else
         {
             this.loginSessionStartTime = parseInt(data.loginSessionStartTime);
         }
         if(typeof(data.loginUrl) == 'undefined' || data.loginUrl.length == 0) {
+            /* login url is optional parameter,sso-guard will reload page without it*/
             //this.output('parameter missing: data-login-url');
             //this.guardStarted = false;
         }
@@ -53,6 +61,21 @@ window.OasisCoreSSOGuard = {
 
     deleteCookie: function (name) {
         document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    },
+
+    getCookie: function (c_name) {
+        var i, x, y;
+        var ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return decodeURI(y);
+            }
+        }
+
+        return '';
     },
     
     installProxy: function () {
