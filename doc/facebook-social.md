@@ -1,12 +1,12 @@
 # Facebook 产品调查
 
-本文档中包含的调查产品为： **Account-kit**, **Messenger Platform**
+本文档中涉及的调查产品为： **Account-kit**, **Messenger Platform**
 
 ##1.Account Kit
 
 **优点:** 可以方便得向用户提供 SMS 或 Email 登录
 
-**与facebook账号的关系:**  使用 account-kit 登录的用户不一定是facebook 用户
+**与facebook账号的关系:**  使用 account-kit 登录的用户不一定有 facebook 账号
 
 **Instant Verification:**  如果在移动端用户安装了Facebook App并登录，或者在网页端用户登录了FB账号的情况下使用 account-kit 进行sms登录的时候，不需要用户接受短信并输入验证码，就可以验证用户身份；使用email登录时候同理，可以更快捷的登录
 
@@ -16,17 +16,17 @@
 
 * account-kit 登录与FB connect登录一样，也需要依托Facebook App来完成，但是经我们测试发现同一个手机号通过不同App登录后会得到不同得账号信息，例：
 
-Login with app gogen
+Login with app: gogen
 
 ```ret1
-User ID: 1277448299058011  (This is not  the user facebook app id)
+User ID: 1277448299058011 (This is not  the user facebook app id)
 Phone Number: +8615801309846
 Email:
 Access Token: EMAWeArNqYSbFNhBRJ8SG4GstujjgWD9drIxDZBH28y7DiPRPlZBBZCcIbL8ecIJrYWxVGQHPjY9ZAClykym3BArlce3RfXK3l9m3NdhdcWZB2f66NdilFqly1J90v9UTrn0WC8IoK6dso7W25uY04Sg0hQIR4SmtEZD
 Refresh Interval: 2592000
 ```
 
-Login with app app-old-1
+Login with app: app-old-1
 
 ```ret2
 User ID: 573925959656204
@@ -36,7 +36,7 @@ Access Token: EMAWfhVjYYmfA4wGZAgLBVJLh49VxzUTmNBQ2AMYA2UtXXdAzYhpAZAKZBloTGIcSy
 Refresh Interval: 2592000
 ```
 
-Login with app goges
+Login with app: goges
 
 ```ret3
 User ID: 213919099194442
@@ -51,9 +51,29 @@ Refresh Interval: 2592000
 
 ##2.Messenger platform
 
+Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机端，Web端使用，它独立于Facebook App 但同样使用Facebook 账号，并且该平台提供了丰富得工具和API供我们创建 messenger bot 来提升与用户的沟通体验和效率。
+
 
 
 ### Chat extension
 
 ![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/chat-ex-shot.png)
+
+### 用户身份识别
+
+#### 1.PSID/ASID
+
+PSID Page-scoped ID， ASID App-scoped ID，messenger 平台提供了API。可以根据 PSID 获取用户在一个business内所有AppID：
+
+```
+GET /{user-id}
+    ?fields=name,is_payment_enabled,ids_for_apps,ids_for_pages
+    &access_token=[page_access_token]
+    &appsecret_proof=[appsecret_proof]
+```
+
+根据这个功能，我们可以把Messenger内跟我们沟通的用户与用FB账号玩游戏的玩家对应起来。
+
+#### 2.Account Linking
+#### 3.获取用户个人信息
 
