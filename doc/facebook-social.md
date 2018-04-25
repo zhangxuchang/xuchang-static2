@@ -53,6 +53,19 @@ Refresh Interval: 2592000
 
 Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机端，Web端使用，它独立于Facebook App 但同样使用Facebook 账号，并且该平台提供了丰富得工具和API供我们创建 messenger bot 来帮助我们提升与用户的沟通体验和效率。
 
+有调查表明已经有很多公司在使用chatbots来提升企业效率: <https://www.socialmediaexaminer.com/chat-and-messenger-bots-new-research-for-marketers/>
+
+```
+Oracle reports that 80% of businesses want chatbots by 2020,
+and many of those respondents were already using them.
+
+Many businesses are already using bot technology for things like marketing, 
+sales, and customer service.No longer will users have to go from a site to an application 
+and back again. The flow will be seamless, based on the user’s needs and preferences.
+```
+
+
+
 ### Messenger Bot 原理
 
 ### Messenger Bot 特性
