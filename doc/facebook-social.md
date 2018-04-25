@@ -73,12 +73,51 @@ Messenger 平台提供了内置的自然语言处理功能，不过感觉目前�
 目前可以甄别出得用户事件只有:
 
 ```
-greetings,thanks,bye （这三种紧支持英语）
+greetings,thanks,bye （这三种仅支持英语）
 ```
 ```
 datetime,amount_of_money,phone_number,email,distance,quantity,
 temperature,volume,location,duration,url
 ```
+
+支持的语言种类:
+
+```
+Arabic,Chinese,Dutch,English,French,German,Greek,Italian
+Korean,Polish,Portuguese,Spanish,Swedish,Vietnamese
+```
+
+和 (我们业务未涉及的语种)
+```
+Croatian,Danish,Irish,Hebrew (modern),Hungarian,Norwegian Bokmål,Romanian
+```
+
+**示例**
+
+用户输入: "Hello"
+
+```
+"text":"Hello",
+"nlp":{
+   "entities":
+   {
+      "greetings":[{"confidence":0.99983274937032,"value":"true",
+   }
+```
+
+用户输入: "Tomorror at 3 pm"
+
+```
+"text":"Tomorrow at 3 pm",
+"nlp":{
+     "entities":
+     {
+        "datetime":[{"confidence":0.96442,"values":"2018-04-26T15:00:00.000+08:00"
+     }
+```
+
+confidence 值体现npl识别辨认度，最大是1；
+values 是翻译后内容
 
 ### Messenger Bot 推广
 
