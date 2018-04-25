@@ -556,8 +556,9 @@ function sendButtonMessage(recipientId) {
             title: "Trigger Postback",
             payload: "DEVELOPER_DEFINED_PAYLOAD"
           }, {
-            type: "element_share",
-            title: "Share"
+            type: "phone_number",
+            title: "Call Phone Number",
+            payload: "+16505551234"
           }]
         }
       }
