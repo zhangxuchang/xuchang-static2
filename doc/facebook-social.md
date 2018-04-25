@@ -68,7 +68,17 @@ Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机�
 
 
 #### Built-in NLP
-Messenger 平台提供了内置的自然语言处理功能，
+Messenger 平台提供了内置的自然语言处理功能，不过感觉目前也不算很强大
+
+目前可以甄别出得用户事件只有:
+
+```
+greetings,thanks,bye （这三种紧支持英语）
+```
+```
+datetime,amount_of_money,phone_number,email,distance,quantity,
+temperature,volume,location,duration,url
+```
 
 ### Messenger Bot 推广
 

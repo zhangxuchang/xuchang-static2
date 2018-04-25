@@ -39,8 +39,8 @@ window.OasisCoreSSOGuard = {
             this.loginSessionStartTime = parseInt(data.loginSessionStartTime);
         }
         if(typeof(data.loginUrl) == 'undefined' || data.loginUrl.length == 0) {
-            this.output('parameter missing: data-login-url');
-            this.guardStarted = false;
+            //this.output('parameter missing: data-login-url');
+            //this.guardStarted = false;
         }
         else{
             this.loginUrl = data.loginUrl;
@@ -87,7 +87,12 @@ window.OasisCoreSSOGuard = {
             this.output('delete cookie: ' + this.loginCookies[i]);
         }
 
-        window.top.location.href = this.loginUrl;
+        if(this.loginUrl.length > 0){
+            window.top.location.href = this.loginUrl;
+        }
+        else{
+            window.top.location.href = window.top.location.href;
+        }
     },
 
     eventRegister: function () {
