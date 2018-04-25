@@ -69,7 +69,7 @@ user’s needs and preferences.
 
 
 
-### Messenger Bot 原理
+### Messenger Bot 工作方式
 
 *  **Facebook Page:** A Facebook Page will be used as the identity of your bot. When people chat with your app, they will see the Page name and the Page profile picture.
 
