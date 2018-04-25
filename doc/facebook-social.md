@@ -1,6 +1,6 @@
 # Facebook 产品调查
 
-本文档中涉及的调查产品为： **Account-kit**, **Messenger Platform**
+本文中涉及的调查产品为： **Account-kit** 和 **Messenger Platform**
 
 ##1.Account Kit
 
@@ -48,6 +48,8 @@ Refresh Interval: 2592000
 
 可见，通过不同App登录得到的用户uid都是不同得，且account-kit没有提供类似business map 一类的工具可已识别用户，因此account-kit 不适合集成进 oasis 账号体系
 
+**结论:** 基于以上情况，我们对account-kit的调查就至此为止了。
+
 
 ##2.Messenger platform
 
@@ -60,18 +62,30 @@ Oracle reports that 80% of businesses want chatbots by 2020,
 and many of those respondents were already using them.
 
 Many businesses are already using bot technology for things like marketing, 
-sales, and customer service.No longer will users have to go from a site to an application 
-and back again. The flow will be seamless, based on the user’s needs and preferences.
+sales, and customer service.No longer will users have to go from a site 
+to an application and back again. The flow will be seamless, based on the 
+user’s needs and preferences.
 ```
 
 
 
 ### Messenger Bot 原理
 
+### Messenger Bot 案例
+
 ### Messenger Bot 特性
 
-#### 固定菜单
-方便用户了解并快捷使用bot提供的主要功能
+#### Quick replies
+Messenger bot 可以通过quick reply 方式与用户进行交互，可以通过这种方式进行用户引导及准确辨识用户意图,
+
+如LEGO Bot 就通过问答形式帮助用户挑选合适得玩具:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a9.png)
+
+有效提升了成单率
+
+#### Persistent menu
+Messenger bot 可以定义固定菜单(如下图所示），方便用户了解并快捷使用bot提供的主要功能
 
 ![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a5.png)
 
@@ -130,7 +144,18 @@ Croatian,Danish,Irish,Hebrew (modern),Hungarian,Norwegian Bokmål,Romanian
 ```
 
 confidence 值体现npl识别辨认度，最大是1；
-values 是翻译后内容
+values 是解析后的可编程数据
+
+
+#### Sender Actions
+Messenger bot 可以反馈一些效果来提升用户体验，比如处理request的时候可以反馈用户一个typing on 效果:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a10.png)
+
+待处理结束后再返回一个 typing off 和处理结果
+
+#### Handover Protocol
+通过 handover protocol 我们可以提供用户在于bot交流的时候切换到与真实客服人员沟通
 
 ### Messenger Bot 推广
 
