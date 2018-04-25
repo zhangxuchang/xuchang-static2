@@ -51,17 +51,34 @@ Refresh Interval: 2592000
 
 ##2.Messenger platform
 
-Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机端，Web端使用，它独立于Facebook App 但同样使用Facebook 账号，并且该平台提供了丰富得工具和API供我们创建 messenger bot 来提升与用户的沟通体验和效率。
+Facebook messenger 是一个跨平台的IM沟通工具，可供用户在手机端，Web端使用，它独立于Facebook App 但同样使用Facebook 账号，并且该平台提供了丰富得工具和API供我们创建 messenger bot 来帮助我们提升与用户的沟通体验和效率。
+
+### Messenger Bot 原理
+
+### Messenger Bot 特性
+
+### 固定菜单
+方便用户了解并快捷使用bot提供的主要功能
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a1.png)
+
+* 通过菜单按钮用户可以快速向bot发送一个指令或访问某个网址(URL)
+* 菜单支持内嵌子菜单
+* 菜单文字可以支持本地化设置
 
 
+#### (1).Built-in NLP
+Messenger 平台提供了内置的自然语言处理功能，
 
-### Chat extension
+### Messenger Bot 推广
+
+### Messenger Bot 插件(Chat extension)
 
 ![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/chat-ex-shot.png)
 
-### 用户身份识别
+### 用户身份识别(IDs&Profile)
 
-#### 1.PSID/ASID
+#### (1).PSID/ASID
 
 PSID Page-scoped ID， ASID App-scoped ID，messenger 平台提供了API。可以根据 PSID 获取用户在一个business内所有AppID：
 
@@ -74,6 +91,10 @@ GET /{user-id}
 
 根据这个功能，我们可以把Messenger内跟我们沟通的用户与用FB账号玩游戏的玩家对应起来。
 
-#### 2.Account Linking
-#### 3.获取用户个人信息
+#### (2).Account Linking
+#### (3).获取用户个人信息
+
+### 支付(beta)
+
+Messenger 平台提供的支付功能目前还处于beta阶段
 
