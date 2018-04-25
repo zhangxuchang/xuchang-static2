@@ -71,7 +71,29 @@ user’s needs and preferences.
 
 ### Messenger Bot 原理
 
+*  **Facebook Page:** A Facebook Page will be used as the identity of your bot. When people chat with your app, they will see the Page name and the Page profile picture.
+
+*  **Facebook App:** The Facebook app contains the settings for your Messenger bot
+
+*  **Webhook URL:** Actions that take place in conversations with your bot such as new messages are sent as events to your webhook
+
 ### Messenger Bot 案例
+
+The Wall Street Journal
+通过messenger bot 发布新闻信息获得了更多得年轻用户
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b1.png)
+
+LEGO
+通过messenger bot 帮助用户挑选商品
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b2.png)
+
+KPL
+
+通过messenger bot 帮助用户便捷的了解航班信息
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b3.png)
 
 ### Messenger Bot 特性
 
@@ -219,7 +241,14 @@ GET /{user-id}
 根据这个功能，我们可以把Messenger内跟我们沟通的用户与用FB账号玩游戏的玩家对应起来。
 
 #### (2).Account Linking
-#### (3).获取用户个人信息
+
+当用户与meesenger bot沟通的时候，可以提供一个登录功能，从而识别出我们业务的老用户，从而为用户提供认证后得服务
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b4.png)
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b5.png)
+
+
 
 ### 支付(beta)
 
