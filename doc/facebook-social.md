@@ -181,6 +181,28 @@ messenger codes 就像是二维码效果一样，可以让通用通过扫描来�
 
 ![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a15.png)
 
+#### m.me Links
+
+快速访问messenger bot 的短连接:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a14.png)
+
+
+#### Sharing Content
+
+（1） 很多聊天内容都支持分享，如图片，模板消息等:
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a16.png)
+
+可以分享给Facebook好友，或者群聊中
+
+（2） Share button
+
+通过share button可以将整个模板信息发送给好友，分享内容中包含了FB Page信息， 好友在接受到信息后可以一键点击直接开启一个与messenger bot的对话
+
+![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a17.png)
+
+
 ### 用户身份识别(IDs&Profile)
 
 #### (1).PSID/ASID
