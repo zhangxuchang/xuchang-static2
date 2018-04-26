@@ -11,8 +11,8 @@
 use GuzzleHttp\Client;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/basic/functions.php';
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/basic/functions.php';
 
 /**
  * @param $url
@@ -46,6 +46,8 @@ function makeRequest($url)
 
     return $res;
 }
+
+envDes();
 
 // test: http get reuqest
 $url = "http://www.oasgames.com/service/geoip/?ip=206.224.254.17";
