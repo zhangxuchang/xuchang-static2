@@ -46,6 +46,30 @@ function makeRequest($url)
     return $res;
 }
 
+function doPost($url, $formData, $header)
+{
+    if (USE_PROXY == true) {
+        $oasProxy = OAS_PROXY;
+    }
+    else {
+        $oasProxy = '';
+    }
+
+    // Guzzle request
+    $client = new Client();
+    $res    = $client->request(
+        'POST',
+        $url,
+        [
+            'proxy'       => $oasProxy,
+            'form_params' => $formData,
+            'headers'     => $header,
+        ]
+    );
+
+    return $res;
+}
+
 envDes();
 
 // test: http get reuqest
@@ -67,6 +91,29 @@ myecho(
     [
         'status_code' => $res->getStatusCode(),
         'body'        => $res->getBody()->getContents(),
+    ]
+);
+
+// test: post request
+$url      = "https://panel-deploy-center-dev.oasgames.com/req-info";
+$formData = [
+    'foo' => 'bar',
+    'baz' => ['hi', 'there!'],
+];
+
+$headers = [
+    'User-Agent' => 'testing/1.0',
+    'Accept'     => 'application/json-1',
+    'X-Foo'      => ['Bar', 'Baz'],
+];
+
+$res = doPost($url, $formData, $headers);
+
+myecho("GET request $url");
+myecho(
+    [
+        'status_code' => $res->getStatusCode(),
+        'body'        => json_decode($res->getBody()->getContents()),
     ]
 );
 
