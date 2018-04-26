@@ -124,12 +124,12 @@ window.OasisCoreSSOGuard = {
             this.output('delete cookie: ' + this.loginCookies[i]);
         }
 
-        // if(this.loginUrl.length > 0){
-        //     window.top.location.href = this.loginUrl;
-        // }
-        // else{
-        //     window.top.location.href = window.top.location.href;
-        // }
+        if(this.loginUrl.length > 0){
+            window.top.location.href = this.loginUrl;
+        }
+        else{
+            window.top.location.href = window.top.location.href;
+        }
     },
 
     eventRegister: function () {
