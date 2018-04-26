@@ -8,6 +8,7 @@ window.OasisCoreSSOGuard = {
 
     coreProxyPage: "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?2",
     loginCookies: [],
+    loginCookieDomain:'',
     loginSessionStartTime: 0,
     loginUrl: '',
     guardStarted: true,
@@ -53,6 +54,10 @@ window.OasisCoreSSOGuard = {
         else{
             this.loginUrl = data.loginUrl;
         }
+
+        if(typeof(data.loginCookiesDomain) != 'undefined' && data.loginCookiesDomain.length > 0) {
+            this.loginCookieDomain = data.loginCookiesDomain;
+        }
     },
 
     output: function (msg) {
@@ -60,7 +65,16 @@ window.OasisCoreSSOGuard = {
     },
 
     deleteCookie: function (name) {
-        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+
+        if(this.loginCookieDomain.length > 0) {
+            document.cookie = name + '=;Path=/; domain='+ this.loginCookieDomain +'; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+        else{
+            var domain = document.domain;
+            document.cookie = name + '=;Path=/; domain=.'+domain+'; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            document.cookie = name + '=;Path=/; domain='+domain+'; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
     },
 
     getCookie: function (c_name) {
@@ -110,12 +124,12 @@ window.OasisCoreSSOGuard = {
             this.output('delete cookie: ' + this.loginCookies[i]);
         }
 
-        if(this.loginUrl.length > 0){
-            window.top.location.href = this.loginUrl;
-        }
-        else{
-            window.top.location.href = window.top.location.href;
-        }
+        // if(this.loginUrl.length > 0){
+        //     window.top.location.href = this.loginUrl;
+        // }
+        // else{
+        //     window.top.location.href = window.top.location.href;
+        // }
     },
 
     eventRegister: function () {
