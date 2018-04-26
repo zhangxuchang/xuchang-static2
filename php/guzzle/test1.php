@@ -19,7 +19,7 @@ $res    = $client->request(
     'GET',
     'http://www.oasgames.com/service/geoip/?ip=206.224.254.17',
     [
-        'proxy' => 'http://127.0.0.1:8081',
+        'proxy' => 'http://internal-elb-oas-ecs-http-proxy-1354046874.us-east-1.elb.amazonaws.com:80',
         //'proxy' => [
         //    'http'  => 'http://127.0.0.1:8081',
         //    'https' => 'http://127.0.0.1:8081',
