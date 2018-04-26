@@ -19,12 +19,12 @@ $res    = $client->request(
     'GET',
     'http://www.oasgames.com/service/geoip/?ip=206.224.254.17',
     [
-        //'proxy' => 'http://127.0.0.1:8081',
-        'proxy' => [
-            'http'  => 'http://127.0.0.1:8081',
-            'https' => 'http://127.0.0.1:8081',
-            'no'    => ['.mit.edu', 'foo.com']
-        ],
+        'proxy' => 'http://127.0.0.1:8081',
+        //'proxy' => [
+        //    'http'  => 'http://127.0.0.1:8081',
+        //    'https' => 'http://127.0.0.1:8081',
+        //    'no'    => ['.mit.edu', 'foo.com']
+        //],
     ]
 );
 

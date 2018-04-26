@@ -25,7 +25,12 @@ $user_id = $data['id'];
 $user_access_token = $data['access_token'];
 $refresh_interval = $data['token_refresh_interval_sec'];
 
-echo json_encode($data);
+echo $ret = json_encode($data);
+
+if(empty($ret)){
+  echo $token_exchange_url;
+}
+
 exit;
 
 // Get Account Kit information
