@@ -109,7 +109,7 @@ $headers = [
 
 $res = doPost($url, $formData, $headers);
 
-myecho("GET request $url");
+myecho("Post request $url");
 myecho(
     [
         'status_code' => $res->getStatusCode(),
