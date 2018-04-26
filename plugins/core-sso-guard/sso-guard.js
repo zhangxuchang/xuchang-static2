@@ -7,7 +7,7 @@
 window.OasisCoreSSOGuard = {
 
     //coreProxyPage: "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?2",
-    coreProxyPage: "//core.oasisgames.cn/cross-domain-communicator.html",
+    coreProxyPage: "https://core.oasisgames.cn/web/cross-domain-communicator.html",
     loginCookies: [],
     loginCookieDomain:'',
     loginSessionStartTime: 0,
