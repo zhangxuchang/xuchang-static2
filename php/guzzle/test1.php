@@ -95,7 +95,7 @@ myecho(
 );
 
 // test: post request
-$url      = "https://panel-deploy-center-dev.oasgames.com/req-info";
+$url      = "https://panel-deploy-center.oasgames.com/req-info";
 $formData = [
     'foo' => 'bar',
     'baz' => ['hi', 'there!'],
