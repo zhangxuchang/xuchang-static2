@@ -12,9 +12,7 @@ use GuzzleHttp\Client;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/basic/functions.php';
-
-//define("OAS_PROXY", 'http://127.0.0.1:8081');
-define("OAS_PROXY", 'http://internal-elb-oas-ecs-http-proxy-1354046874.us-east-1.elb.amazonaws.com:80');
+require_once __DIR__ . '/config.php';
 
 /**
  * @param $url
@@ -23,6 +21,13 @@ define("OAS_PROXY", 'http://internal-elb-oas-ecs-http-proxy-1354046874.us-east-1
  */
 function makeRequest($url)
 {
+    if (USE_PROXY == true) {
+        $oasProxy = OAS_PROXY;
+    }
+    else {
+        $oasProxy = '';
+    }
+
     // Guzzle request
     $client = new Client();
 
@@ -30,7 +35,7 @@ function makeRequest($url)
         'GET',
         $url,
         [
-            'proxy' => OAS_PROXY,
+            'proxy' => $oasProxy,
             //'proxy' => [
             //    'http'  => 'http://127.0.0.1:8081',
             //    'https' => 'http://127.0.0.1:8081',
@@ -41,7 +46,6 @@ function makeRequest($url)
 
     return $res;
 }
-
 
 // test: http get reuqest
 $url = "http://www.oasgames.com/service/geoip/?ip=206.224.254.17";
