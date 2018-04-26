@@ -17,7 +17,7 @@ function myecho($msg)
     }
     else {
         echo $msg;
-        echo "\n";
+        echo "\n\n";
     }
 }
 

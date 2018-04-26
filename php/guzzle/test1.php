@@ -30,8 +30,7 @@ function makeRequest($url)
 
     // Guzzle request
     $client = new Client();
-
-    $res = $client->request(
+    $res    = $client->request(
         'GET',
         $url,
         [
