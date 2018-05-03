@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>FB Login Test</h3>
+
+
+
+<script src="//img.oasgames.com/upload/1513737892/static/js/jquery.js"></script>
+<script src="http://passport-dev.oasgames.com/lib/oas_library.2.2.js?3"></script>
+
+<script type="text/javascript">
+    var FB_APP_ID ="562265367280905";
+    var fb_app_id ="562265367280905";
+    var FB_APP_LANGUAGE = "fr_FR";
+
+    function fbLogin() {
+        OAS_GAMES_JS.facebook.login({'fail':'Fail to connect with facebook'},function (data) {
+            console.log('oas fb login');
+        })
+    }
+
+</script>
+
+<a href="javascript:fbLogin();">Login</a>
+
+</body>
+</html>
