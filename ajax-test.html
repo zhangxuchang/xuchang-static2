@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Cors test</h3>
+
+<a href="javascript:testCorsRequest2()">Send request</a>
+
+<script src="//img.oasgames.com/upload/1513737892/static/js/jquery.js"></script>
+<script type="text/javascript">
+
+    function testCorsRequest() {
+
+        console.log('send request:');
+
+        $.post(
+            'http://passport-dev.oasgames.com/profile/policy-accept',
+            {
+                'passport_jwt': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoiYXBwIiwiY2xpZW50SWQiOjk5OSwidXVpZCI6IjMwMDAwNzA2OTg2ODE1NiIsIm5pY2tuYW1lIjoiYWY3M2YiLCJ1c2VybmFtZSI6Inp4YzIwMTgtMUBhLmNvbSIsImlhdCI6MTUyNjAzNDk2NCwiZXhwIjoxNTI2MDM2NzY0LCJsaWZldGltZSI6MTgwMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.EcSb7k_UQNk_WJEWE4z78niPPvQbhrftnU8j3X56vgQ',
+            },
+            function (data) {
+                console.log(data);
+            },
+            'json'
+        );
+
+    }
+    
+    function testCorsRequest2() {
+
+        console.log('fetch: send request:');
+
+        let url = 'http://passport-dev.oasgames.com/profile/policy-accept';
+
+        let param = {
+            passport_jwt: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRUeXBlIjoiYXBwIiwiY2xpZW50SWQiOjk5OSwidXVpZCI6IjMwMDAwNzA2OTg2ODE1NiIsIm5pY2tuYW1lIjoiYWY3M2YiLCJ1c2VybmFtZSI6Inp4YzIwMTgtMUBhLmNvbSIsImlhdCI6MTUyNjI3MDQyMSwiZXhwIjoxNTI2MjcyMjIxLCJsaWZldGltZSI6MTgwMCwicm9sZXMiOlsiUk9MRV9VU0VSIl19.AVn-rTm5e-yOv5rjpxRxrldYdoBA-CEGLw2qA2ZBzJU',
+        };
+
+        postData(url,param).then(function (data) {
+            console.log(data);
+        })
+
+    }
+
+    function postData(url, data) {
+        // Default options are marked with *
+        return fetch(url, {
+            body: JSON.stringify(data), // must match 'Content-Type' header
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'include', // include, same-origin, *omit
+            headers: {
+                'user-agent': 'Mozilla/4.0 MDN Example',
+                'content-type': 'application/json',
+            },
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, cors, *same-origin
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // *client, no-referrer
+        }); // parses response to JSON
+    }
+
+</script>
+</body>
+</html>
