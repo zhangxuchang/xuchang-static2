@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Account Kit</title>
+    <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
+</head>
+<body>
+<h3>FB Account Kit Login</h3>
+
+<input value="+86" id="country_code" />
+<input placeholder="phone number" id="phone_number" value="15801309846" style="width: 200px"/>
+<button onclick="smsLogin();">Login via SMS</button>
+<div>OR</div>
+<input placeholder="email" id="email" style="width: 340px"/>
+<button onclick="emailLogin();">Login via Email</button>
+
+
+<form id="login_success" method="post" action="success.php">
+    <input id="csrf" type="hidden" name="csrf" />
+    <input id="code" type="hidden" name="code" />
+</form>
+
+
+<script>
+    // initialize Account Kit with CSRF protection
+    AccountKit_OnInteractive = function(){
+        AccountKit.init(
+            {
+                appId:"104847996567457",
+                state:"zxc-test-001",
+                version:"v1.0",
+                fbAppEventsEnabled:true,
+                redirect:"http://xuchang-stat.oasgames.com/research/facebook/account-kit/success.php"
+            }
+        );
+    };
+
+    function _p(data) {
+        console.log(data);
+    }
+
+    // login callback
+    function loginCallback(response) {
+        if (response.status === "PARTIALLY_AUTHENTICATED") {
+            // Send code to server to exchange for access token
+            document.getElementById("code").value = response.code;
+            document.getElementById("csrf").value = response.state;
+            document.getElementById("login_success").submit();
+        }
+        else if (response.status === "NOT_AUTHENTICATED") {
+            // handle authentication failure
+        }
+        else if (response.status === "BAD_PARAMS") {
+            // handle bad parameters
+        }
+        _p(response);
+    }
+
+    // phone form submission handler
+    function smsLogin() {
+        var countryCode = document.getElementById("country_code").value;
+        var phoneNumber = document.getElementById("phone_number").value;
+        AccountKit.login(
+            'PHONE',
+            {countryCode: countryCode, phoneNumber: phoneNumber}, // will use default values if not specified
+            loginCallback
+        );
+    }
+
+
+    // email form submission handler
+    function emailLogin() {
+        var emailAddress = document.getElementById("email").value;
+        AccountKit.login(
+            'EMAIL',
+            {emailAddress: emailAddress},
+            loginCallback
+        );
+    }
+</script>
+
+
+</body>
+</html>

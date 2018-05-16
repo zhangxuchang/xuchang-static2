@@ -2,30 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cross domain communicator</title>
+    <title>Should be embed in iframe</title>
 </head>
 <body>
 
 <h3>Oasis core cross domain communicator</h3>
 
-<div>
-    <a href="javascript:putDataToLocation()">Detact</a>
-</div>
-
 <script type="text/javascript">
 
-    
-    function putDataToLocation() {
-        var href = window.location.href = "http://sso-guard.oasisgames.cn/plugins/core-sso-guard/cross-domain-communicator.html?a=1#key=" + Date.now();
+    var output = function (msg) {
+        console.log("[ccdc] " + msg);
+    };
 
-        console.log("my url is: " + href);
+    var getCookie = function (c_name) {
+        var i, x, y;
+        var ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return decodeURI(y);
+            }
+        }
+
+        return '';
+    };
+
+    function sendHeartBeatMessage() {
+
+        var cKey = 'core-session-start-time';
+        var sessionTime = getCookie(cKey);
+
+        if(sessionTime.length < 1){
+            output('can not find cookie: ' + cKey);
+            return;
+        }
+
+        sessionTime = parseInt(sessionTime);
+
+        //
+        var win = parent.window;
+        var msg = {'user_login_time': sessionTime};
+        win.postMessage(msg,"*");
     }
 
+
     setInterval(function () {
-        putDataToLocation();
+        sendHeartBeatMessage();
     },3000)
 
 </script>
+
 
 </body>
 </html>
