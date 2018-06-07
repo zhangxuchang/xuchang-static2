@@ -5,5 +5,15 @@
             "hosts": "xuchang-static.oasgames.com"
         }
     },
-    "node_sub_projects": ["slimvue-test"]
+    "node_sub_projects": ["slimvue-test"],
+    "log_files": {
+        "log_handler": {
+            "path": "/data/logs/*/*",
+            "age": "864000",
+            "aws_group": "dc-log-demo",
+            "aws_stream": "dc-log-demo",
+            "datetime_format": "",
+            "multi_line_start_pattern": "\[\d*\]"
+        }
+    }
 }
