@@ -13,7 +13,7 @@
             "aws_group": "dc-log-demo",
             "aws_stream": "dc-log-demo",
             "datetime_format": "",
-            "multi_line_start_pattern": "\[\d*\]"
+            "multi_line_start_pattern": "\uFF3C[\uFF3Cd*\uFF3C]"
         }
     }
 }
