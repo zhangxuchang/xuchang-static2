@@ -37,11 +37,14 @@
     function doFeed() {
         FB.ui({
             method: 'feed',
-            link: 'http://naruto.oasgames.com/de/',
-            caption: 'An example caption',
-            display: 'touch',
+            // link: 'https://panel-deploy-center.oasgames.com/',
+            link: 'https://oasgames.com/pc/en/home.html',
+            redirect_uri: 'https://naruto.oasgames.com/en/',
+            display: 'popup',
             source: 'https://img.oasgames.com/oasevent/1462345926.swf',
-            picture: 'http://img.oasgames.com/oasevent/7a58a49f06d2e46cade7ca4d8490d4ed.jpeg'
+            picture: 'http://img.oasgames.com/oasevent/1471339989.jpg',
+            ref: 'oas,dc',
+            description: 'Pls Say something about this feed',
         }, function (response) {
         });
 

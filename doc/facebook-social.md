@@ -82,18 +82,18 @@ user’s needs and preferences.
 The Wall Street Journal
 通过messenger bot 发布新闻信息获得了更多得年轻用户
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b1.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/b1.png)
 
 LEGO
 通过messenger bot 帮助用户挑选商品
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b2.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/b2.png)
 
 KPL
 
 通过messenger bot 帮助用户便捷的了解航班信息
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b3.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/b3.png)
 
 ### Messenger Bot 特性
 
@@ -102,14 +102,14 @@ Messenger bot 可以通过quick reply 方式与用户进行交互，可以通过
 
 如LEGO Bot 就通过问答形式帮助用户挑选合适得玩具:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a9.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a9.png)
 
 有效提升了成单率
 
 #### Persistent menu
 Messenger bot 可以定义固定菜单(如下图所示），方便用户了解并快捷使用bot提供的主要功能
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a5.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a5.png)
 
 * 通过菜单按钮用户可以快速向bot发送一个指令或访问某个网址(URL)
 * 菜单支持内嵌子菜单
@@ -172,49 +172,49 @@ values 是解析后的可编程数据
 #### Sender Actions
 Messenger bot 可以反馈一些效果来提升用户体验，比如处理request的时候可以反馈用户一个typing on 效果:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a10.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a10.png)
 
 待处理结束后再返回一个 typing off 和处理结果
 
 #### Handover Protocol
 通过 handover protocol 我们可以提供用户在于bot交流的时候切换到与真实客服人员沟通，如:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a11.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a11.png)
 
 用户选择 “Pass to Inbox”， 消息的处理就会交到 FB Page的Inbox，由真实人员处理。直至conversion结束再交回messenger bot:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a12.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a12.png)
 
 ### Messenger Bot 推广
 
 #### Chat plugin
 可以挂载在网页上，用户可以直接与bot沟通
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a7.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a7.png)
 
 #### Discover Tab
 为了让新用户浏览或搜索到我们的messenger bot,需要将bot提交到 Discover，这个在Page 管理后台的Discover Settings 处设置提交:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a13.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a13.png)
 
 #### Messenger Codes
 
 messenger codes 就像是二维码效果一样，可以让通用通过扫描来把 messenger bot 加入自己的联系人:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a15.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a15.png)
 
 #### m.me Links
 
 快速访问messenger bot 的短连接:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a14.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a14.png)
 
 
 #### Sharing Content
 
 （1） 很多聊天内容都支持分享，如图片，模板消息等:
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a16.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a16.png)
 
 可以分享给Facebook好友，或者群聊中
 
@@ -222,7 +222,7 @@ messenger codes 就像是二维码效果一样，可以让通用通过扫描来�
 
 通过share button可以将整个模板信息发送给好友，分享内容中包含了FB Page信息， 好友在接受到信息后可以一键点击直接开启一个与messenger bot的对话
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/a17.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/a17.png)
 
 
 ### 用户身份识别(IDs&Profile)
@@ -244,9 +244,9 @@ GET /{user-id}
 
 当用户与meesenger bot沟通的时候，可以提供一个登录功能，从而识别出我们业务的老用户，从而为用户提供认证后得服务
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b4.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/b4.png)
 
-![MacDown Screenshot](http://xuchang-stat.oasgames.com/doc/img/b5.png)
+![MacDown Screenshot](https://xuchang-stat.oasgames.com/doc/img/b5.png)
 
 
 
