@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Facebook Feed Dialog</h3>
+
+<a href="javascript: doFeed()">Let's feed</a>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '268349649846630',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v3.0'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+
+    function doFeed() {
+        FB.ui({
+            method: 'feed',
+            // link: 'https://panel-deploy-center.oasgames.com/',
+            link: 'https://oasgames.com/pc/en/home.html',
+            redirect_uri: 'https://naruto.oasgames.com/en/',
+            display: 'popup',
+            source: 'https://img.oasgames.com/oasevent/1462345926.swf',
+            picture: 'http://img.oasgames.com/oasevent/1471339989.jpg',
+            ref: 'oas,dc',
+            description: 'Pls Say something about this feed',
+        }, function (response) {
+        });
+
+    }
+
+
+</script>
+
+</body>
+</html>

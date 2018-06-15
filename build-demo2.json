@@ -1,0 +1,48 @@
+{
+    "targets"            : {
+        "http-dc-panel": {
+            "type" : "web",
+            "name": "DC panel",
+            "hosts": "panel-deploy-center.oasgames.com",
+            "index": "web/front.php",
+            "maps": {"web/events/":"events"},
+            "cpu": 32,
+            "memory": 512
+        },
+        "static-pages": {
+            "type" : "static",
+            "hosts": "xuchang-static.oasgames.com",
+            "root": "public",
+        },
+        "auto-clear-cache" : {
+            "type"     : "cli",
+            "command"  : "/project/bin/passport.php s:c:c"
+        },
+        "cron-group": {
+            "type" : "cron",
+            "commands" : [
+                {
+                    "command" : "run something",
+                    "schedule" : "* * * * *"
+                },
+                {
+                    "command" : "run something 2",
+                    "schedule" : "* * * * *"
+                }
+            ]
+        }
+    },
+    "log_files": {
+        "log_handler": {
+            "path": "",
+            "age": "",
+            "aws_group": "",
+            "aws_stream": "",
+            "datetime_format": "",
+            "multi_line_start_pattern": ""
+        }
+    },
+    "node_sub_projects": ["slimvue-deploy-center","admin","publish"],
+    "composer_path": "admin",
+    "post_install_script": "/project/bin/passport.php m:cache:clear"
+}

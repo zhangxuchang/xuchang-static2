@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>OAS Share</title>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '268349649846630',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v2.10'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+<body>
+<h1>Share & share open graph</h1>
+
+<a href="#" onclick="return customShare();">Share open graph</a>
+
+
+<script>
+    function customShare()
+    {
+        shareOverrideOGMeta(
+            'https://panel-deploy-center.oasgames.com/',
+            'OASIS ECS Deploy center',
+            'Help you to deploy product to aws ecs',
+            'https://img.oasgames.com/upload/1528871488.jpg'
+        );
+    }
+
+    function shareOverrideOGMeta(overrideLink, overrideTitle, overrideDescription, overrideImage)
+    {
+        FB.ui({
+                method: 'share_open_graph',
+                action_type: 'og.shares',
+                action_properties: JSON.stringify({
+                    object: {
+                        'og:url': overrideLink,
+                        'og:title': overrideTitle,
+                        'og:description': overrideDescription,
+                        'og:image': overrideImage
+                    }
+                })
+            },
+            function (response) {
+                // Action after response
+            });
+    }
+
+</script>
+</body>
+</html>

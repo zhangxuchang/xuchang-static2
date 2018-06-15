@@ -1,0 +1,20 @@
+{
+    "targets"            : {
+        "msandbox-api"   : {
+            "type" : "web",
+            "name" : "Sandbox Api",
+            "hosts": "api-msandbox.oasgames.com api-msandbox.oasisgames.cn",
+            "index": "web/front.php"
+        },
+        "msandbox-api-cron-group"      : {
+            "type"    : "cron",
+            "commands": [
+                {
+                    "command" : "/project/bin/api.php sandbox:core:sync",
+                    "schedule": "0 * * * *"
+                }
+            ]
+        }
+    },
+    "post_install_script": "sh /project/flush.sh"
+}

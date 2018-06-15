@@ -1,0 +1,5 @@
+services:
+    slimvue.bridge:
+        class: Oasis\SlimVue\TwigBridgeInfo
+        arguments:
+            - [] # constants
