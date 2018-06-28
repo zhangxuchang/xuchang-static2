@@ -9,7 +9,8 @@
             "type" : "web",
             "name": "DC panel",
             "hosts": "panel-deploy-center.oasgames.com",
-            "index": "php/test.php"
+            "index": "php/test.php",
+            "is_symfony_kind": false
         }
     },
     "node_sub_projects": ["slimvue-test"],
