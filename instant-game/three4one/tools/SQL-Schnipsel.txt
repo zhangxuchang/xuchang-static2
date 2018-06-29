@@ -1,0 +1,15 @@
+#
+#
+# Lemmas einer Sprache für ein Packet
+#
+SELECT bild, lang, lemma FROM `daw_elemente` de 
+  JOIN daw_elemente_lemmas del ON de.id = del.elemente_id
+WHERE de.package_id = 2
+  AND del.lang = 'fr'
+ORDER BY lemma
+
+
+UPDATE daw_elemente_lemmas del SET del.soundexists=(SELECT de.soundexists FROM `daw_elemente` de 
+  WHERE de.id = del.elemente_id)
+WHERE del.elemente_id IN(SELECT de1.id FROM daw_elemente de1 WHERE de1.package_id = 1)
+  AND del.lang = 'de'

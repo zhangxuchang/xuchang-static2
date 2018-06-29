@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    	<meta charset="utf-8">
+    	<title>Three4One Setup Page</title>
+    <style>
+			#placer {
+				border: 2px #aaa solid;
+				border-bottom-left-radius: 45px;
+				border-bottom-right-radius: 45px;
+			}
+			.placer {
+				display: -webkit-box;
+				display: box;
+				box-orient: vertical;
+				box-align: center;
+				box-pack: center;
+				-webkit-box-orient: vertical;
+				-webkit-box-align: stretch;
+				-webkit-box-pack: justify;
+			}
+			#itemPlacer{
+				width: 33.333%;
+			}
+			#styleSpacer {
+				margin-bottom: 15px;
+			}
+			#logo {
+				margin-top: 15px;
+				margin-bottom: 5px;
+				background-color: #aaa;
+				width:100%;
+				-webkit-box-shadow:inset 0px 65px 10px rgba(255, 255, 255, 0.3);
+				
+			}
+			#styleSpacer {
+				display: -webkit-box;
+				display: box;
+				box-orient: horizontal;
+				box-align: center;
+				box-pack: justify;
+				-webkit-box-orient: horizontal;
+				-webkit-box-align: stretch;
+				-webkit-box-pack: justify;
+				width: 100%;
+				text-align: left;
+			}
+			.styler {
+				height: 2px;
+				margin-top: 24px;
+				margin-bottom: 24px;
+				width:100%;
+				background-color: #aaa;
+			}
+
+			#leftStyles, #rightStyles {
+				width: 33.333%;
+			}
+			body {
+				font-family: Helvetica, sans-serif;
+				background-color: white;
+				color: white;
+				font-weight: bold;
+				text-shadow: gray 0px 1px 1px;
+			}
+			.menue-item {
+				border-radius: 7px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				width: 100%;
+				border:2px solid #aaa;
+				margin-top: 3px;
+				margin-bottom: 3px;
+				background-color: rgb(169,19,19);
+				-webkit-box-shadow: inset 0px 20px 6px rgba(255, 255, 255, 0.3);
+			}
+			.pageElement {
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+			
+		</style>
+    </head>
+	<body>
+    	<div id="placer" class="placer">
+        	<div id="logo" class="pageElement">
+                        <img src="pict/logo.png">
+            </div>
+            <div id="styleSpacer">
+               	<div id="leftStyles" class="placer">
+                	<div class="left styler"></div>
+                    <div class="left styler"></div>
+                    <div class="left styler"></div>
+                    <div class="left styler"></div>
+                </div>
+                <div id="itemPlacer" class="placer">
+                    
+                    <div class="pageElement menue-item">
+                        Game
+                    </div>
+                    <div class="pageElement menue-item">
+                        Settings
+                    </div>
+                    <div class="pageElement menue-item">
+                        Shop
+                    </div>
+                    <div class="pageElement menue-item">
+                        Copyright
+                    </div>
+                </div>
+                <div id="rightStyles" class="placer">
+                	<div class="right styler"></div>
+                    <div class="right styler"></div>
+                    <div class="right styler"></div>
+                    <div class="right styler"></div>
+                </div>
+           </div>
+       </div>
+	</body>
+</html>

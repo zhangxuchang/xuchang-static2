@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Sencha Touch Accordion Layout</title>
+
+		<link rel="stylesheet" href="../sencha-touch-1.0.1a/resources/css/sencha-touch.css" type="text/css">
+		<script type="text/javascript" src="../sencha-touch-1.0.1a/sencha-touch-debug.js"></script>
+
+		<link rel="stylesheet" href="Ext.layout.AccordionLayout.css" type="text/css">
+		<script type="text/javascript" src="Ext.layout.AccordionLayout.js"></script>
+
+		<script type="text/javascript">
+Ext.setup({
+    onReady: function() {
+    	Ext.regModel("Contact", {
+            fields: ["firstName", "lastName"]
+        });
+
+		var list = new Ext.List({
+			scroll           : "vertical",
+			title            : "List Test",
+            itemTpl          : "<div class='contact2'><strong>{firstName}</strong> {lastName}</div>",
+            selModel         : {
+                mode          : "SINGLE",
+                allowDeselect : true
+            },
+            grouped          : true,
+            indexBar         : true,
+            onItemDisclosure : {
+                scope   : "test",
+                handler : function(record, btn, index) {
+                    alert("Disclose more info for " + record.get("firstName"));
+                }
+            },
+            store            : new Ext.data.Store({
+                model          : "Contact",
+                sorters        : "firstName",
+                getGroupString : function(record) {
+                    return record.get("firstName")[0];
+                },
+                data           : [
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Ape",     lastName : "Evilias"   },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Ape",     lastName : "Evilias"   },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Ape",     lastName : "Evilias"   },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Ape",     lastName : "Evilias"   },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Tommy",   lastName : "Maintz"    },
+                    {firstName : "Ed",      lastName : "Spencer"   },
+                    {firstName : "Jamie",   lastName : "Avins"     },
+                    {firstName : "Aaron",   lastName : "Conran"    },
+                    {firstName : "Dave",    lastName : "Kaneda"    },
+                    {firstName : "Michael", lastName : "Mullany"   },
+                    {firstName : "Abraham", lastName : "Elias"     },
+                    {firstName : "Jay",     lastName : "Robinson"  },
+                    {firstName : "Zed",     lastName : "Zacharias" }
+                ]
+            })
+        });
+
+		var panel = new Ext.Panel({
+			fullscreen : true,
+			scroll     : "vertical",
+			layout     : {
+				type :  "accordion"
+			},
+			items: [
+				{ xtype : "panel", title : "One Title",   html : "One"   },
+				list,
+				{ xtype : "panel", title : "Three Title", html : "Three" },
+				{ xtype : "panel", title : "Four Title",  html : "Four"  },
+				{ xtype : "panel", title : "Five Title",  html : "Five"  },
+				{ xtype : "panel", title : "Six Title",   html : "Six"   }
+			]
+		});
+    }
+});
+		</script>
+    </head>
+    <body>
+    </body>
+</html>

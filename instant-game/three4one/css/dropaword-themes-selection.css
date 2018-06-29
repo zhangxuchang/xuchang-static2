@@ -1,0 +1,20 @@
+.themesSelectionClass {
+	display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+}
+.themesSelectionTextClass {          
+	-moz-box-flex: 1;      
+	-webkit-box-flex: 1;   
+}
+.themesSelectionActionClass {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+}
+
+
+.themesSelectionActionClass img{
+	width: 24px;
+	margin: 0px 5px;
+}
