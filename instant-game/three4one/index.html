@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html manifest="php/t4o_manifest.php" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta charset="utf-8">
+    	<!-- wird vom spiel.js gesetzt -->
+		<title></title>
+		
+		<meta name="viewport" content="initial-scale=1.0" />
+
+		<link rel="stylesheet" href="sencha/resources/css/sencha-touch.css" type="text/css"/>
+		<link rel="stylesheet" href="css/t4o_spiel.css" type="text/css"/>
+		<link rel="stylesheet" href="thirdparty/Ext.ux.TouchGridPanel/Ext.ux.TouchGridPanel.css" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		
+		<script src="sencha/sencha-touch-debug.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="thirdparty/sprintf-0.7-beta1.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_lang.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_starting-page.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_emulator.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_counter.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_game-statistic.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_conf-param.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_conf-reset.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_conf-access.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_conf-panel.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_game-db.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_playpanel.js" charset="utf-8" type="application/x-javascript"></script>
+  		<script src="jscript/t4o_ok-window.js" charset="utf-8" type="application/x-javascript"></script>
+  		<script src="jscript/t4o_info-window.js" charset="utf-8" type="application/x-javascript"></script>
+  		<script src="jscript/t4o_help-window.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_copyright-window.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="jscript/t4o_spiel.js" charset="utf-8" type="application/x-javascript"></script>
+		<script src="thirdparty/Ext.ux.TouchGridPanel/Ext.ux.TouchGridPanel.js" charset="utf-8" type="application/x-javascript"></script>
+	</head>
+	<body>		
+		<div style="display: none;">
+		<div id="panelcontent" style="display:block;">
+			<div id="droppable" class="droppablePos">
+				<img id="dropImg" style="width: 150px; -webkit-border-radius: 8px;" src="">
+			</div>
+			<div class="draggablePos">
+				<div class="draggable-outer" id="draggable-outer-0">
+					<div class="draggable-inner" id="draggable0">Y</div>
+				</div>
+				<div class="draggable-outer" id="draggable-outer-1">
+					<div class="draggable-inner" id="draggable1"></div>
+				</div>
+				<div class="draggable-outer" id="draggable-outer-2">
+					<div class="draggable-inner" id="draggable2"></div>
+				</div>
+				<div class="" id="google-ads">
+					<script type="text/javascript"><!--
+					  // XHTML should not attempt to parse these strings, declare them CDATA.
+					  /* <![CDATA[ */
+					  window.googleAfmcRequest = {
+					    client: 'ca-mb-pub-3483042356381870',
+					    format: '320x50_mb',
+					    output: 'html',
+					    slotname: '6128914853',
+					  };
+					  /* ]]> */
+					//--></script>
+					<script type="text/javascript"    src="http://pagead2.googlesyndication.com/pagead/show_afmc_ads.js"></script>
+				</div>			
+				<!-- div id="debug">test</div -->
+			</div>
+		</div>
+		<div id="start">
+		</div>
+		    <div id="copyrightText">
+		      <!-- div id="demoIcon" style="float: right; padding: 5px;"><img src="pict/movie.png"></div>  -->
+		      <div id='dataCopyrightDiv'></div>
+		      <div style="padding-bottom: 8px; font-size: 10px;">
+			     <span id="versionsSpan"></span><!-- div id="HelpIconDiv" class="iconDiv"></div>  -->
+		      </div>
+			</div>
+			<div id="Statistics">
+			</div>
+
+			<div id="resultContainer" class="resultContainer">
+				<span><img src="pict/egore_Thumb_Up_small.png"></span> 
+				<span id="okCount">444</span>
+				<span class="thumbDown"><img class="thumbDown" src="pict/egore_Thumb_Down_small.png"></span>
+				<span id="errCount">333</span>
+			</div>
+
+			<div id="okDiv">
+			 <div id="horOkPanel">
+				<div>
+				<img  id="okThumbUpImg" src="pict/egore_Thumb_Up_.png">
+				</div>
+				<div id="audioPlayButton">
+					<img id="audioPlayButtonImg" src="pict/audio.png">
+				</div>
+ 			 </div>
+ 			 <audio id="audioTag" autoplay></audio>
+			 <div width="150" height="150">
+			   <img id="okDivImg" style="vertical-align: middle; margin: 3px;"  src="">
+			 </div>
+			 <div id="okDivText">
+			 </div>
+		    </div>
+			
+		  <div id='helpTextDiv' >
+		  <ul>
+		  <li><a href="#Spiel">Spiel</a></li>
+		  <li><a href="#Extras">Extras</a>
+		  	<ul>
+			  <li><a href="#Einstellungen">Einstellungen</a></li>
+			  <li><a href="#Shop">Shop</a></li>
+			  <li><a href="#Reset">Reset</a></li>
+			  <li><a href="#Statistik">Statistik</a></li>
+		  	</ul>
+		  </li>
+		  </ul>
+		  <h2><a name="Spiel">Spiel</a></h2>
+		  <P>Ziehen Sie das richtige Wort auf das Bild</P>
+		  <img style="width: 210px;" src="pict/help/playpanel.png">
+		  <P>Sie haben 3 zufällige Wörter zur Auswahl. Wählen Sie das richtige aus und ziehen es auf das Bild.
+		  <h2><a name="Extras">Extras</a></h2>
+		  <h3><a name="Einstellungen">Einstellungen</a></h3>
+		  <img style="width: 210px;" src="pict/help/configuration.png">
+		  <dl>
+		  	<dt>Sprache</dt>
+		  	<dd>Wählen Sie die Sprache aus, in welcher Sie spielen wollen.<BR>Haben Sie die Sprache nicht gekauft (siehe <a href="Shop">Shop</a>),dann 
+		  	können Sie mit einem eingeschränkten Wortschatz spielen (in diesem Fall wird das Wort Demo in der Kopfzeile angezeigt)   
+		  </dl>
+		  <h3><a name="Shop">Shop</a></h3>
+		  <h3><a name="Reset">Reset</a></h3>
+		  <h3><a name="Statistik">Statistik</a></h3>
+		  
+		  </div>
+		</div>
+	</body>
+</html>

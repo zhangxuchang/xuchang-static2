@@ -1,0 +1,14 @@
+/bin/bash
+
+IFS="\n"
+for i in $(find /srv100/daten/users/forssmann/Austausch/Domes/BWB_Bilder/29* -type d -printf "%f\n"); 
+do 
+	(
+	echo "$i"; 
+	cd "/srv100/daten/users/forssmann/Austausch/Domes/BWB_Bilder/$i"; 
+	for j in *.jpg; do 
+		convert -verbose "$j" -strip -resize 150x150 "/srv100/Intranet/www/htdocs/Sencha/BWB-Spiel/img/$i/$j"; 
+	done
+	); 
+done
+

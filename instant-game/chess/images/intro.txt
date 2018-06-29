@@ -1,0 +1,11 @@
+Congratulations on installing Anywhere Board Games!
+
+Game pieces can be moved by clicking and dragging.  You can do everything else through pop-up menus available by clicking on pieces or the background.  Using multi-select (clicking and dragging on the background) will bring up a menu for stacking and shuffling the selected pieces.
+
+Anywhere Board Games comes with a number of pre-made boards and pieces.  Please click on the background and select "Open Board..." to access them. To add a piece, click on the background, select "Add Piece...", and provide the URL for any image on the Internet.
+
+To finish installation, you will need to make sure that the directory "server/data" and its contents are writable by your web server.
+
+Have fun!
+
+http://anywhereboardgames.com
