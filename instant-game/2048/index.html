@@ -77,11 +77,12 @@
     </p>
     <hr>
     <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
+      <strong class="important">Suggest games:</strong>
+      <a href="https://www.facebook.com/instantgames/1692576804183923/">Crazy Gunner</a>
     </p>
     <hr>
-    <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+    <strong>Dev info:</strong>
+    <p id="devmsg">
     </p>
   </div>
 
@@ -104,21 +105,25 @@
     var preloaded = {};
 
     window.onload = function () {
-      FBInstant.initializeAsync().then(function () {
 
-        // Preload images
-        IMAGES.forEach(function (imgName, index) {
-          var img = new Image();
-          img.src = './meta/' + imgName + '.png';
-          preloaded[imgName] = img;
-          FBInstant.setLoadingProgress(Math.ceil(index / IMAGES.length) * 100);
-        })
+        FBInstant.initializeAsync().then(function () {
 
-        // Finished loading. Start the game
-        FBInstant.startGameAsync().then(function () {
-          startGame();
+          // Preload images
+          IMAGES.forEach(function (imgName, index) {
+            var img = new Image();
+            img.src = './meta/' + imgName + '.png';
+            preloaded[imgName] = img;
+            FBInstant.setLoadingProgress(Math.ceil(index / IMAGES.length) * 100);
+          })
+
+          // Finished loading. Start the game
+          FBInstant.startGameAsync().then(function () {
+              startGame();
+              dev();
+          });
         });
-      });
+
+        //dev();
     };
 
     function selectContext() {
@@ -130,6 +135,26 @@
 
     function startGame() {
       new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+    }
+
+    function dev() {
+        setDevMsg('get entry point:');
+        const entryPointData = FBInstant.getEntryPointData();
+        setDevMsg(entryPointData);
+    }
+    
+    function setDevMsg(msg) {
+
+        console.log(msg);
+        console.log(typeof(msg));
+
+        if(typeof(msg) == 'object')
+        {
+            msg = JSON.stringify(msg);
+        }
+
+        var txt = document.getElementById('devmsg').innerHTML;
+        document.getElementById('devmsg').innerHTML = txt + '<br/>' + msg;
     }
 
   </script>
