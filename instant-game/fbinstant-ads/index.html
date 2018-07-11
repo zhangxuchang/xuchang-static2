@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <!-- build:js -->
+  <script src="js/mock/fbinstant.6.0.mock.js"></script>
+  <!-- endbuild -->
+
+  <script type="text/javascript">
+
+    // This demo won't run until you configure your app
+    // and replace these constants with proper values.
+    // Please see the README.md or go to 
+    // https://developers.facebook.com/docs/games/instant-games/guides/ads-monetization 
+    // for further instructions
+    const INTERSTITIAL_PLACEMENT_ID = '<YOUR INTERSTITIAL PLACEMENT ID>';
+    const REWARDED_PLACEMENT_ID = '<YOUR REWARDED VIDEO PLACEMENT ID>';
+
+    var watchedInterstitials = 0;
+    var watchedRewardedVideos = 0;
+    var preloadedRewardedVideo = null;
+    var preloadedInterstitial = null;
+
+    window.onload = function() {
+      FBInstant.initializeAsync().then(function() {
+        FBInstant.startGameAsync().then(function() {
+
+          var supportedAPIs = FBInstant.getSupportedAPIs();
+          if (supportedAPIs.includes('getInterstitialAdAsync') && supportedAPIs.includes('getRewardedVideoAsync')){
+            //
+            // Preload Interstitial
+            //
+            FBInstant.getInterstitialAdAsync(
+              INTERSTITIAL_PLACEMENT_ID, // Your Ad Placement Id
+            ).then(function(interstitial) {
+              // Load the Ad asynchronously
+              preloadedInterstitial = interstitial;
+              return preloadedInterstitial.loadAsync();
+            }).then(function() {
+              showElement('btn-interstitial');
+            }).catch(function(err){
+              displayError('Interstitial failed to preload: ' + err.message);
+            });
+
+            //
+            // Preload Rewarded
+            //
+            FBInstant.getRewardedVideoAsync(
+              REWARDED_PLACEMENT_ID, // Your Ad Placement Id
+            ).then(function(rewarded) {
+              // Load the Ad asynchronously
+              preloadedRewardedVideo = rewarded;
+              return preloadedRewardedVideo.loadAsync();
+            }).then(function() {
+              showElement('btn-rewarded-video');
+            }).catch(function(err){
+              displayError('Rewarded video failed to preload:' + err.message);
+            });
+
+          } else {
+            displayError('Ads not supported in this session');
+          }
+         
+        });
+      });
+    };
+
+    function showInterstitial() {      
+      preloadedInterstitial.showAsync()
+      .then(function() {
+        // Perform post-ad success operation
+        displayInterstitialAmount(++watchedInterstitials);        
+      })
+      .catch(function(e) {
+        displayError(e.message);
+      });
+    }
+
+    function showRewardedVideo() {
+      preloadedRewardedVideo.showAsync()
+      .then(function() {
+        // Perform post-ad success operation
+        displayRewardedAmount(++watchedRewardedVideos);
+      }).catch(function(e) {
+         displayError(e.message);
+      });
+    }
+
+    function showElement(elmt) {
+      document.getElementById(elmt).style.visibility = 'visible';
+    }
+
+    function displayError(message) {
+      document.getElementById('error-messages').innerHTML = message
+    }
+
+    function displayInterstitialAmount(amount) {
+      document.getElementById('interstitial-amount').innerHTML = amount;
+    }
+
+    function displayRewardedAmount(amount) {
+      document.getElementById('rewarded-amount').innerHTML = amount;
+    }
+
+  </script>
+
+  <h1>
+    Instant Games Demos 
+  </h1>
+  <h2> 
+    Audience Network Monetization
+  </h2>
+
+  <div class="panel">
+    <img src="img/title_img.png" class="img-title" />
+  </div>
+
+  <div class="panel">
+    <p> Interstitial Ads Seen:
+    <span id="interstitial-amount"> 0 </span> </p>
+    <input type="button" 
+      id="btn-interstitial" 
+      onclick="showInterstitial();" 
+      value="Show Interstitial Ad" />
+  </div>
+
+  <br />
+
+  <div class="panel">
+    <p> Rewarded Videos Watched:
+    <span id="rewarded-amount"> 0 </span> </p>
+    <input type="button" 
+      id="btn-rewarded-video" 
+      onclick="showRewardedVideo();"
+      value= "Show Rewarded Video" />
+  </div>
+
+  <div id="error-messages">
+  </div>
+
+</body>
+</html>
