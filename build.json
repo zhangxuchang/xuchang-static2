@@ -4,13 +4,6 @@
             "type" : "static",
             "hosts": "xuchang-static.oasgames.com",
             "stop_before_run": false
-        },
-        "http-dc-panel": {
-            "type" : "web",
-            "name": "DC panel",
-            "hosts": "panel-deploy-center.oasgames.com",
-            "index": "php/test.php",
-            "is_symfony_kind": false
         }
     },
     "node_sub_projects": ["slimvue-test"],
