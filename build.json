@@ -3,7 +3,7 @@
         "http-target": {
             "type" : "static",
             "hosts": "xuchang-static.oasgames.com",
-            "stop_before_run": false
+            "stop_before_run": true
         }
     },
     "node_sub_projects": ["slimvue-test"],
