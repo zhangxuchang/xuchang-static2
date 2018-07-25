@@ -9,7 +9,8 @@
     "node_sub_projects": ["slimvue-test"],
     "log_files": {
         "log_handler": {
-            "path": "/data/logs/*/*",
+            "path": "/data/logs/*/",
+            "file_names": ["front","test.txt","build-poll","deploy-run"],
             "age": "864000",
             "aws_group": "dc-log-demo",
             "aws_stream": "dc-log-demo",
