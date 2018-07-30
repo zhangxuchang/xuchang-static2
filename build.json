@@ -1,19 +1,26 @@
 {
     "targets"            : {
-        "http-target": {
-            "type" : "static",
-            "hosts": "xuchang-static.oasgames.com",
+        "http-target" : {
+            "type"           : "static",
+            "hosts"          : "xuchang-static.oasgames.com",
             "stop_before_run": false
+        },
+        "run-once-cli": {
+            "type"   : "cli",
+            "command": "echo 'run once cli' >> /tmp/deploy-center.log",
+            "keepalive": false
         }
     },
-    "node_sub_projects": ["slimvue-test"],
-    "log_files": {
+    "node_sub_projects"  : [
+        "slimvue-test"
+    ],
+    "log_files"          : {
         "log_handler": {
-            "path": "/data/logs/*/",
-            "age": "864000",
-            "aws_group": "dc-log-demo",
-            "aws_stream": "dc-log-demo",
-            "datetime_format": "",
+            "path"                    : "/data/logs/*/",
+            "age"                     : "864000",
+            "aws_group"               : "dc-log-demo",
+            "aws_stream"              : "dc-log-demo",
+            "datetime_format"         : "",
             "multi_line_start_pattern": "%5c%5b%5cd*%5c%5d"
         }
     },
