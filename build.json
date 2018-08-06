@@ -24,5 +24,6 @@
             "multi_line_start_pattern": "%5c%5b%5cd*%5c%5d"
         }
     },
-    "composer_enabled": true
+    "composer_enabled": true,
+    "prepare_container_script": "echo 'run prepare_container_script' >> /tmp/deploy-center.log"
 }
