@@ -25,5 +25,5 @@
         }
     },
     "composer_enabled": true,
-    "prepare_container_script": "cd /project/slimvue-test && npm run release && echo 'run prepare_container_script' >> /tmp/deploy-center.log"
+    "prepare_container_script": "echo 'run prepare_container_script' >> /tmp/deploy-center.log"
 }
