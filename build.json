@@ -24,7 +24,7 @@
             "multi_line_start_pattern": "%5c%5b%5cd*%5c%5d"
         }
     },
-    "node_auto_build_diabled": true,
+    "node_auto_build_disabled": true,
     "composer_enabled": false,
     "prepare_container_script": "echo 'run prepare_container_script' >> /tmp/deploy-center.log",
     "pre_start_script": "echo 'run pre_start_script' >> /tmp/deploy-center2.log"
