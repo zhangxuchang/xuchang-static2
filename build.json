@@ -6,10 +6,12 @@
             "stop_before_run": false
         },
         "run-once-cli": {
+            "binding-product": "xuchang-test",
             "type"   : "cli",
             "command": "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive": false
-        }
+        },
+        "binding-product": "xuchang-test",
     },
     "node_sub_projects"  : [
         "slimvue-test"
