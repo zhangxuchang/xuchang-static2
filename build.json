@@ -1,22 +1,22 @@
 {
-    "targets"            : {
+    "targets"                 : {
         "http-target" : {
+            "binding-product": "xuchang-test",
             "type"           : "static",
             "hosts"          : "xuchang-static.oasgames.com",
             "stop_before_run": false
         },
         "run-once-cli": {
             "binding-product": "xuchang-test",
-            "type"   : "cli",
-            "command": "echo 'run once cli' >> /tmp/deploy-center.log",
-            "keepalive": false
+            "type"           : "cli",
+            "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
+            "keepalive"      : false
         },
-        "binding-product": "xuchang-test",
     },
-    "node_sub_projects"  : [
+    "node_sub_projects"       : [
         "slimvue-test"
     ],
-    "log_files"          : {
+    "log_files"               : {
         "log_handler": {
             "path"                    : "/data/logs/*/",
             "age"                     : "864000",
@@ -27,7 +27,7 @@
         }
     },
     "node_auto_build_disabled": true,
-    "composer_enabled": false,
+    "composer_enabled"        : false,
     "prepare_container_script": "echo 'run prepare_container_script' >> /tmp/deploy-center.log",
-    "pre_start_script": "echo 'run pre_start_script' >> /tmp/deploy-center2.log"
+    "pre_start_script"        : "echo 'run pre_start_script' >> /tmp/deploy-center2.log"
 }
