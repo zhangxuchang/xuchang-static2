@@ -17,6 +17,12 @@
             "type"           : "cli",
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
+        },
+        "run-once-cli-beijing": {
+            "binding-product": "xuchang-test-beijing",
+            "type"           : "cli",
+            "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
+            "keepalive"      : false
         }
     },
     "node_sub_projects"       : [
