@@ -11,6 +11,12 @@
             "type"           : "cli",
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
+        },
+        "run-once-cli-online": {
+            "binding-product": "xuchang-test-static",
+            "type"           : "cli",
+            "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
+            "keepalive"      : false
         }
     },
     "node_sub_projects"       : [
