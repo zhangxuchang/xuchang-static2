@@ -18,6 +18,12 @@
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
         },
+        "http-target-beijing": {
+            "binding-product": "xuchang-test-beijing",
+            "type"           : "static",
+            "hosts"          : "xuchang-static.oasgames.com",
+            "stop_before_run": false
+        },
         "run-once-cli-beijing": {
             "binding-product": "xuchang-test-beijing",
             "type"           : "cli",
