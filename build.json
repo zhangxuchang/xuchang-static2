@@ -1,24 +1,24 @@
 {
     "targets"                 : {
-        "http-target" : {
+        "http-target"         : {
             "binding-product": "xuchang-test",
             "type"           : "static",
             "hosts"          : "xuchang-static.oasgames.com",
             "stop_before_run": false
         },
-        "run-once-cli": {
+        "run-once-cli"        : {
             "binding-product": "build-control-test",
             "type"           : "cli",
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
         },
-        "run-once-cli-online": {
+        "run-once-cli-online" : {
             "binding-product": "xuchang-test-static",
             "type"           : "cli",
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
         },
-        "http-target-beijing": {
+        "http-target-beijing" : {
             "binding-product": "xuchang-test-beijing",
             "type"           : "static",
             "hosts"          : "xuchang-static.oasgames.com",
@@ -41,7 +41,8 @@
             "aws_group"               : "dc-log-demo",
             "aws_stream"              : "dc-log-demo",
             "datetime_format"         : "",
-            "multi_line_start_pattern": "%5c%5b%5cd*%5c%5d"
+            "multi_line_start_pattern": "%5c%5b%5cd*%5c%5d",
+            "file_fingerprint_lines"  : "1"
         }
     },
     "node_auto_build_disabled": true,
