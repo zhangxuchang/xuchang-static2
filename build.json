@@ -4,7 +4,7 @@
             "binding-product": "xuchang-test",
             "type"           : "static",
             "hosts"          : "xuchang-static.oasgames.com",
-            "stop_before_run": false
+            "stop_before_run": true
         },
         "run-once-cli"        : {
             "binding-product": "build-control-test",
