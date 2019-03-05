@@ -1,39 +1,19 @@
 {
     "targets"                 : {
         "http-target"         : {
-            "binding-product": "xuchang-test",
+            "binding-product": "xuchang-test-static",
             "type"           : "static",
             "hosts"          : "xuchang-static.oasgames.com",
             "stop_before_run": true
         },
-        "run-once-cli"        : {
-            "binding-product": "build-control-test",
-            "type"           : "cli",
-            "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
-            "keepalive"      : false
-        },
+
         "run-once-cli-online" : {
-            "binding-product": "xuchang-test-static",
-            "type"           : "cli",
-            "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
-            "keepalive"      : false
-        },
-        "http-target-beijing" : {
-            "binding-product": "xuchang-test-beijing",
-            "type"           : "static",
-            "hosts"          : "xuchang-static.oasgames.com",
-            "stop_before_run": false
-        },
-        "run-once-cli-beijing": {
-            "binding-product": "xuchang-test-beijing",
+            "binding-product": "run-once-cli-online",
             "type"           : "cli",
             "command"        : "echo 'run once cli' >> /tmp/deploy-center.log",
             "keepalive"      : false
         }
     },
-    "node_sub_projects"       : [
-        "slimvue-test"
-    ],
     "log_files"               : {
         "log_handler": {
             "path"                    : "/data/logs/*/",
@@ -45,8 +25,8 @@
             "file_fingerprint_lines"  : "1"
         }
     },
-    "node_auto_build_disabled": true,
+    "node_auto_build_disabled": false,
     "composer_enabled"        : false,
-    "prepare_container_script": "echo 'run prepare_container_script' >> /tmp/deploy-center.log",
-    "pre_start_script"        : "echo 'run pre_start_script' >> /tmp/deploy-center2.log"
+    "prepare_container_script": "echo 'xuchang test: prepare container script demon' >> /tmp/deploy-center.log",
+    "pre_start_script"        : "echo 'xuchang test:  pre start script demon' >> /tmp/deploy-center.log"
 }
